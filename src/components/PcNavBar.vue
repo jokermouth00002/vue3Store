@@ -15,6 +15,9 @@ const showMenu = (item: any) => {
   showMenuDown.value = true
   selectedCollection.value = item
 }
+function goHomePage() {
+  router.push({ path: '/' })
+}
 
 const collectionMenuDown = computed(() => {
   if (selectedCollection.value === 'bedRoom') return collection.bedRoom
@@ -28,7 +31,7 @@ const collectionMenuDown = computed(() => {
 <template>
   <div class="relative pl-20 pr-20">
     <div class="flex w-full justify-between items-center py-15px">
-      <i class="fa-solid fa-store text-4xl " />
+      <i class="fa-solid fa-store text-4xl pointer" @click="goHomePage()" />
       <div class="items flex relative space-x-12">
         <div
           v-for="(item,index) in collection.title" :key="index"
@@ -49,18 +52,20 @@ const collectionMenuDown = computed(() => {
     >
       <section class="flex justify-center text-gray-50 w-full">
         <div>
-          <ul v-for="(item,index) in collectionMenuDown.items" :key="index">
+          <ul v-for="(item,index) in collectionMenuDown.items" :key="index" class="pointer">
             {{ item }}
           </ul>
         </div>
         <div>
           <div class="flex">
-            <div v-for="(item,index) in collectionMenuDown.contents" :key="index" class=" pl-12 pr-12">
+            <div v-for="(item,index) in collectionMenuDown.contents" :key="index" class="pl-12 pr-12">
               <img
                 :src="item.img"
-                class="w-100%"
+                class="w-100% pointer"
               >
-              <h4> {{ item.slogan }} </h4>
+              <h4 class="pointer">
+                {{ item.slogan }}
+              </h4>
               <span> {{ item.text }} </span>
             </div>
           </div>
@@ -71,9 +76,6 @@ const collectionMenuDown = computed(() => {
 </template>
 
 <style scoped>
-.pointer{
-  cursor:pointer
-}
 .bgColor{
   background-color: #5A5F66;
 }

@@ -2,15 +2,17 @@
 
 </script>
 
-<template lang="pug">
-div.h-12.flex.justify-center.items-center.relative
-  div
-    .text-light-50.text-2xl 滿 300 即免運
-  div.absolute.right-18
-    i.i.fa-solid.fa-heart.white.pl4
-    i.fa-solid.fa-cart-shopping.white.pl4
-    i.fa-solid.fa-user.white.pl4
-
+<template>
+  <div class=" h-12 flex justify-center items-center relative">
+    <div class=" text-light-50 text-2xl">
+      滿 300 即免運
+    </div>
+    <div class="absolute right-18">
+      <i class="i fa-solid fa-heart white pointer pl4" />
+      <i class="fa-solid fa-cart-shopping white pointer pl4>" />
+      <i class="fa-solid fa-user bg-currentwhite pointer pl4" />
+    </div>
+  </div>
 </template>
 <style scoped>
 </style>

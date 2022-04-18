@@ -2,8 +2,32 @@
   cursor: pointer
 }
 
+.noSelect {
+  user-select: none;
+}
+
 .fontMaginia {
   font-family: 'Maginia', sans-serif;
+}
+
+.red {
+  color: red
+}
+
+.black {
+  color: black
+}
+
+.textColor {
+  color: #656565
+}
+
+.gray {
+  color: rgb(190, 190, 190);
+}
+
+.lightGreen {
+  background-color: #f7f7f7;
 }
 
 .brandFont {

@@ -4,27 +4,27 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
-    CategoryButton: typeof import('./src/components/CategoryButton.vue')['default']
+    CategoryMenu: typeof import('./src/components/CategoryMenu.vue')['default']
     Checkbox: typeof import('./src/components/Checkbox.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
-    ElCheckbox: typeof import('element-plus/es')['ElCheckbox']
     ElInputNumber: typeof import('element-plus/es')['ElInputNumber']
     ElOption: typeof import('element-plus/es')['ElOption']
     ElSelect: typeof import('element-plus/es')['ElSelect']
     Footer: typeof import('./src/components/Footer.vue')['default']
     FunctionRow: typeof import('./src/components/FunctionRow.vue')['default']
+    IIcBaselineArrowDownward: typeof import('~icons/ic/baseline-arrow-downward')['default']
     IIcBaselineEmail: typeof import('~icons/ic/baseline-email')['default']
-    IIcBaselineLocalPhone: typeof import('~icons/ic/baseline-local-phone')['default']
     IIcBaselinePhone: typeof import('~icons/ic/baseline-phone')['default']
-    IIonChevronDownSharp: typeof import('~icons/ion/chevron-down-sharp')['default']
     IIonHeart: typeof import('~icons/ion/heart')['default']
     IIonIosArrowDown: typeof import('~icons/ion/ios-arrow-down')['default']
     IIonIosArrowUp: typeof import('~icons/ion/ios-arrow-up')['default']
+    IPhMagnifyingGlassBold: typeof import('~icons/ph/magnifying-glass-bold')['default']
     IPhQuestion: typeof import('~icons/ph/question')['default']
-    IPhQuestionBold: typeof import('~icons/ph/question-bold')['default']
     NavBarMenuDown: typeof import('./src/components/NavBarMenuDown.vue')['default']
     PcNavBar: typeof import('./src/components/PcNavBar.vue')['default']
     ProductBox: typeof import('./src/components/ProductBox.vue')['default']
+    ProductDetail: typeof import('./src/components/ProductDetail.vue')['default']
+    RelatedProduct: typeof import('./src/components/RelatedProduct.vue')['default']
   }
 }
 

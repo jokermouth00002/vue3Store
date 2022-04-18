@@ -8,6 +8,7 @@ const collection = reactive(new CollectionItem())
 const props = defineProps({
   selectedCollection: {
     type: String,
+    // !!!!
   },
 })
 const selectedCollection = ref(props)

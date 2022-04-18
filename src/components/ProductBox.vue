@@ -4,7 +4,6 @@ import { useRoute, useRouter } from 'vue-router'
 const router = useRouter()
 const route = useRoute()
 const nowPath = computed(() => route.path)
-console.log(route.params, 'im route.params')
 interface ProductInfo {
   imgSource: string
   productName: string
