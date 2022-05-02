@@ -4,23 +4,20 @@
 /* eslint-disable @typescript-eslint/comma-dangle */
 
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { reactive, ref, watch } from 'vue'
+import { reactive, watch } from 'vue'
 import { Navigation, Pagination } from 'swiper'
 import { useRoute, useRouter } from 'vue-router'
-import ProductBox from './ProductBox.vue'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 const router = useRouter()
 const route = useRoute()
-const nowPath = computed(() => route.path)
 const modules = [Navigation, Pagination]
 interface ProductInfo {
   imgSource: string
   productName: string
   productPrice: number
 }
-window.router = router
 const props = defineProps<{ productsArr: ProductInfo[] }>()
 const productsArr = reactive(props.productsArr)
 const goPath = (item: any) => {

@@ -1,41 +1,35 @@
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
-interface Category {
+import { ref } from 'vue'
+interface Option {
+  category: string
   title: string
-  detail: { text: string; status: boolean }[]
+  details: { text: string; status: boolean }[]
 }
-const showDetail = ref(false)
+const showDetails = ref(false)
 const props = defineProps<{
-  category: Category
+  option: Option
 }>()
-const emit = defineEmits(['test'])
-function selectedOption(option: { text: string; status: boolean }) {
-  console.log('selectedOption', option)
-  emit('test', '123')
-  console.log('selectedOption end')
-}
-const category = reactive(props.category)
 </script>
 <template>
   <div
     style="z-index: 20"
     class="relative"
-    @mouseover="showDetail = true"
-    @mouseout="showDetail = false"
+    @mouseover="showDetails = true"
+    @mouseout="showDetails = false"
   >
     <div
-      class="categoryButton w-max flex flex-col pointer"
-      :class="{ hoverStyle: showDetail }"
+      class="optionButton w-max flex flex-col pointer"
+      :class="{ hoverStyle: showDetails }"
     >
-      <span class="font-semibold">
-        {{ category.title }}
-        <i class="fa-solid fa-angle-down" />
+      <span class="font-normal">
+        {{ props.option.title }}
+        <i class="fa-solid fa-angle-down" style="font-size:14px" />
       </span>
     </div>
 
     <div
       class="
-        categoryDetail
+        optionDetails
         flex flex-col
         w-max
         items-start
@@ -47,17 +41,16 @@ const category = reactive(props.category)
       "
     >
       <div
-        v-for="(item, index) in category.detail"
+        v-for="(item, index) in props.option.details"
         :key="index"
         class="bg-light-50 hidden pointer"
-        :class="{ categoryDetailButton: showDetail }"
+        :class="{ optionDetailsButton: showDetails }"
       >
         <el-checkbox
           v-model="item.status"
           size="large"
           class="w-100%"
           :label="item.text"
-          @click="selectedOption"
         />
       </div>
     </div>
@@ -65,14 +58,14 @@ const category = reactive(props.category)
 </template>
 
 <style scoped lang="scss">
-.categoryButton {
+.optionButton {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 10px;
   border: 1px solid transparent;
 }
-.categoryDetailButton {
+.optionDetailsButton {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -80,7 +73,7 @@ const category = reactive(props.category)
   background-color: white;
   border-top: 0;
 }
-.categoryDetail :deep(.el-checkbox__label) {
+.optionDetails :deep(.el-checkbox__label) {
   font-size: 20px;
 }
 .border {

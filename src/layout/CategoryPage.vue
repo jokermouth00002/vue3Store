@@ -2,134 +2,189 @@
 /* eslint-disable @typescript-eslint/comma-dangle */
 /* eslint-disable @typescript-eslint/brace-style */
 
-import { computed, onUpdated, reactive, ref, watch } from 'vue'
-import { categoryData, productData } from '../FakeData'
+import { computed, reactive, ref } from 'vue'
+import { useRoute } from 'vue-router'
+import {
+  bedRoomType, diningType,
+  furnitureType, kitchenType,
+  lightingType, priceOption,
+  productsData, quickShipOption, sortOption
+} from '../FakeData'
 import ProductBox from '~/components/ProductBox.vue'
 import CategoryMenu from '~/components/CategoryMenu.vue'
-interface Category {
+interface Option {
+  category?: string
+  details: string[]
   title: string
-  detail: string[]
 }
-interface ProductInfo {
-  imgSource: string
-  productName: string
-  productPrice: number
+interface SetStatusOption {
+  category: string
+  details: { status: boolean; text: string }[]
+  title: string
+
 }
 
-const productItemsInfo = reactive(productData)
-const productsNumber = ref(productItemsInfo.length)
-const categoryByText = [
-  {
-    title: 'Sort by',
-    detail: [
-      'Best Sellers',
-      'Name: A - Z',
-      'Name: Z - A',
-      'Price: Low to High',
-      'Price: High to Low',
-      'Newest',
-    ],
-  },
-]
+const route = useRoute()
+const totalProducts = ref(productsData)
+const productItemsInfo = computed(() => {
+  return totalProducts.value.filter((p) => {
+    return p.category === route.params.category
+  })
+})
+const productsNumber = ref(productItemsInfo.value.length)
 const nowPage = ref(1)
 const pageSize = ref(20)
-let nowShowProductsArr: Array<ProductInfo> = reactive(
-  productItemsInfo.slice(0, pageSize.value + 1)
-)
-const setupCategorySelectOptions = (categoryData: Category[]) => {
-  return categoryData.map((obj) => {
-    const arr = obj.detail.map((content) => {
-      return {
-        text: content,
-        status: false,
-      }
-    })
+const setupCategorySelectOptions = (options: Option|SetStatusOption) => {
+  const arr = options.details.map((content) => {
     return {
-      title: obj.title,
-      detail: arr,
+      text: content,
+      status: false,
     }
   })
-}
-const handleCurrentPage = (val: number): ProductInfo[] => {
-  const deductProductNumber = (val - 1) * pageSize.value
-  const residueProduct = productsNumber.value - deductProductNumber
-  let start = 0
-  let end = 0
-  if (residueProduct > pageSize.value) {
-    start = deductProductNumber - 1
-    end = start++ + pageSize.value
-  } else {
-    start = deductProductNumber
-    end = productsNumber.value + 1
+  return {
+    title: options.title,
+    details: arr,
+    category: options.category
   }
-
-  nowShowProductsArr = productItemsInfo.slice(start, end + 1)
-  return nowShowProductsArr
 }
-const categoryItems = reactive(setupCategorySelectOptions(categoryData))
-const categorySortBy = reactive(setupCategorySelectOptions(categoryByText))
-console.log(categoryItems, categorySortBy)
 
-const showProduct = (option: any) => {
-  console.log(option)
-}
-// const quickShipOptionStatus = computed(() => {
-//   return categoryItems[0].detail.status
-// })
-// const typeOptionStatus = computed(() => {
-//   return categoryItems[1].detail.status
-// })
-// const priceOptionStatus = computed(() => {
-//   return categoryItems[2].detail.status
-// })
-// const sortByOptionStatus = computed(() => {
-//   return categorySortBy[0].detail.status
-// })
+// const handleCurrentPage = (val: number): ProductInfo[] => {
+//   const deductProductNumber = (val - 1) * pageSize.value
+//   const residueProduct = productsNumber.value - deductProductNumber
+//   let start = 0
+//   let end = 0
+//   if (residueProduct > pageSize.value) {
+//     start = deductProductNumber - 1
+//     end = start++ + pageSize.value
+//   } else {
+//     start = deductProductNumber
+//     end = productsNumber.value + 1
+//   }
 
-window.categoryItems = categoryItems
+//   nowShowProductsArr = productItemsInfo.slice(start, end + 1)
+//   return nowShowProductsArr
+// }
+const nowCategoryTypeOptions = computed(() => {
+  if (route.params.category === 'bedRoom') return setupCategorySelectOptions(bedRoomType)
+  if (route.params.category === 'furniture') return setupCategorySelectOptions(furnitureType)
+  if (route.params.category === 'dining') return setupCategorySelectOptions(diningType)
+  if (route.params.category === 'kitchen') return setupCategorySelectOptions(kitchenType)
+  if (route.params.category === 'lighting') return setupCategorySelectOptions(lightingType)
+  return [
+    {
+      title: 'error',
+      details: ['errorOption'],
+      category: 'error'
+    }
+  ]
+})
+const productsOptions = ref([setupCategorySelectOptions(quickShipOption), nowCategoryTypeOptions.value, setupCategorySelectOptions(priceOption)])
+const sortOptions = ref(setupCategorySelectOptions(sortOption))
+const filteredProducts = computed(() => {
+  let filterProdictsArr = productItemsInfo.value.filter((p, index) => {
+    const [quickShipCondition, categoryTypeCondition, priceConditions] = productsOptions.value
+    // const quickShipCondition: SetStatusOption = productsOptions.value[0]
+    if (quickShipCondition.details[0].status)
+      if (!p.quickShip) return false
+
+    const enabledTypes = categoryTypeCondition.details.filter(d => d.status)
+    if (enabledTypes.length > 0)
+      if (enabledTypes.filter(t => t.text === p.type).length === 0) return false
+
+    const enablePrices = priceConditions.details.filter(d => d.status)
+    if (enablePrices.length > 0) {
+      let result = false
+      for (const data of enablePrices) {
+        const text = data.text
+        const price = p.productPrice
+        if (text === '$50 to $100') {
+          if (price >= 50 && price <= 100) result = true
+        } else if (text === '$100 to $250') {
+          if (price >= 100 && price <= 250) result = true
+        }
+        else if (text === '$250 to $500') {
+          if (price >= 250 && price <= 500) result = true
+        }
+        else if (text === '$500 to $1000') {
+          if (price >= 500 && price <= 1000) result = true
+        }
+        else if (text === 'More then $1000') {
+          if (price >= 1000) result = true
+        }
+      }
+      if (!result) return false
+    }
+
+    return true
+  })
+  const enableSort = sortOptions.value.details.filter(d => d.status)
+  if (enableSort.length > 0) {
+    const sortMode = enableSort[0].text
+    if (sortMode === 'Name: A - Z') {
+      const withoutLetter = filterProdictsArr.map(n => n.productName.replace(/[\-\s]+/, ''))
+      filterProdictsArr = withoutLetter.sort()
+      console.log(filterProdictsArr)
+    }
+    if (sortMode === 'Name: Z - A')
+      filterProdictsArr = filterProdictsArr.reverse()
+    // if(sortMode === 'Price: Low to High')
+
+    // if(sortMode === 'Price: High to Low')
+  }
+  return filterProdictsArr
+})
+const test = computed(() => {
+  return filteredProducts.value.length
+})
+
+// window.p = productItemsInfo.value
+window.fp = ref(filteredProducts)
+window.po = productsOptions.value
+window.so = sortOptions
+window.test = test
 </script>
 
 <template>
   <div class="relative">
     <h2 class="pageTitle flex justify-center top-5rem">
-      <slot name="title" />
-      Title
+      {{ route.params.category.toUpperCase() }}
     </h2>
-    <div class="pr-60 pl-60 py-10 bgColor">
-      <div class="w-100% h-100%">
-        <div class="category flex justify-between">
-          <div class="w-60%">
-            <div class="flex justify-around h-44px pb-10">
-              <slot name="category" />
-              <CategoryMenu
-                v-for="(item, index) in categoryItems"
-                :key="index"
-                :category="item"
-                :test="showProduct"
-              />
+    <div class="bgColor w-100%">
+      <div class="py-10 mx-auto" style="max-width:1366px">
+        <div class="w-100% h-100%">
+          <div class="category flex justify-between">
+            <div class="w-60%">
+              <div class="flex h-44px pb-10">
+                <CategoryMenu
+                  v-for="(item, index) in productsOptions"
+                  :key="index"
+                  :option="item"
+                />
+              </div>
+            </div>
+            <div class="categoryFont w-40% flex flex-row-reverse">
+              <CategoryMenu :option="sortOptions" />
             </div>
           </div>
-          <div class="categoryFont w-40% flex flex-row-reverse">
-            <CategoryMenu :category="categorySortBy[0]" />
+          <!-- nowShowProductsArr -->
+          <div class="flex-wrap flex space-y-4 justify-around w-100%">
+            <ProductBox
+              v-for="(item, index) in filteredProducts"
+              :key="index"
+              :productInfo="item"
+              class="space-x-6 w-25rem"
+            />
           </div>
         </div>
-        <div class="flex-wrap flex justify-around w-100%">
-          <ProductBox
-            v-for="(item, index) in nowShowProductsArr"
-            :key="index"
-            :productInfo="item"
-            class="space-x-6 w-25rem"
+        <div class="pt-20px flex flex-row-reverse">
+          <el-pagination
+            v-model:current-page="nowPage"
+            layout="prev, pager, next"
+            :page-size="pageSize"
+            :total="productsNumber"
           />
+          <!-- @current-change="handleCurrentPage"  -->
         </div>
-      </div>
-      <div class="pt-20px flex flex-row-reverse">
-        <el-pagination
-          v-model:current-page="nowPage"
-          layout="prev, pager, next"
-          :page-size="pageSize"
-          :total="productsNumber"
-        />
-        <!-- @current-change="handleCurrentPage"  -->
       </div>
     </div>
   </div>

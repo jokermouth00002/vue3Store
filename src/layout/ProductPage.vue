@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import InnerImageZoom from 'vue-inner-image-zoom'
 import RelatedProduct from '../components/RelatedProduct.vue'
-import { productData } from '../FakeData'
+import { productsData } from '../FakeData'
 import ProductDetail from '~/components/ProductDetail.vue'
 
 const value = ref('')
@@ -41,11 +41,11 @@ const num = ref(0)
             <img
               class="w-80px h-80px pb-10px pointer"
               src="//cdn.shopify.com/s/files/1/1087/6904/products/83fa05ceb61f887a7e5731c2cd61f181_1400x.jpg?v=1571438954"
-            />
+            >
             <img
               class="w-80px h-80px pb-10px pointer"
               src="//cdn.shopify.com/s/files/1/1087/6904/products/83fa05ceb61f887a7e5731c2cd61f181_1400x.jpg?v=1571438954"
-            />
+            >
             <i-ion-ios-arrow-down class="pt-1rem pointer" />
           </div>
           <div class="flex w-30vw justify-center relative flex-grow">
@@ -66,7 +66,9 @@ const num = ref(0)
         </div>
         <div class="priceInfo">
           <span class="brandFont text-xl"> OEUF </span>
-          <div class="fontMaginia text-3xl py-2.5rem">River Twin Bed</div>
+          <div class="fontMaginia text-3xl py-2.5rem">
+            River Twin Bed
+          </div>
           <span class="font-bold"> $950 </span>
           <div class="flex py-1rem space-x-4">
             <div class="w-50% pt-10px">
@@ -129,8 +131,7 @@ const num = ref(0)
           </div>
           <div class="flex justify-around mt-3rem py-20px border-topBottom">
             <span class="flex item-center pointer">
-              <i-ph-question /> QUESTIONS</span
-            >
+              <i-ph-question /> QUESTIONS</span>
             <span class="flex item-center pointer">
               <i-ic-baseline-email /> EMAIL
             </span>
@@ -174,7 +175,7 @@ const num = ref(0)
           </div>
         </section>
         <ProductDetail class="pt-1rem" />
-        <RelatedProduct :productsArr="productData" />
+        <RelatedProduct :productsArr="productsData" />
       </div>
     </div>
   </div>

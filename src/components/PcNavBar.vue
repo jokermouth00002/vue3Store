@@ -9,7 +9,7 @@ const showMenuDown = ref(false)
 const routerTo = (text: string) => {
   router.push({ path: `/collections/${text}` })
 }
-const selectedCollection = ref('bedRoom')
+const selectedCollection = ref('BedRoom')
 
 const showMenu = (item: any) => {
   showMenuDown.value = true
@@ -20,10 +20,10 @@ function goHomePage() {
 }
 
 const collectionMenuDown = computed(() => {
-  if (selectedCollection.value === 'bedRoom') return collection.bedRoom
-  if (selectedCollection.value === 'furniture') return collection.furniture
-  if (selectedCollection.value === 'floorLamp') return collection.floorLamp
-  if (selectedCollection.value === 'dining') return collection.dining
+  if (selectedCollection.value === 'BedRoom') return collection.bedRoom
+  if (selectedCollection.value === 'Furniture') return collection.furniture
+  if (selectedCollection.value === 'FloorLamp') return collection.floorLamp
+  if (selectedCollection.value === 'Dining') return collection.dining
   return collection.bedRoom
 })
 </script>

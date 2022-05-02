@@ -9,18 +9,18 @@ export class CollectionItem {
 
   furniture: { items: string[]; contents: Content[] }
 
-  floorLamp: { items: string[]; contents: Content[] }
+  kitchen: { items: string[]; contents: Content[] }
 
   dining: { items: string[]; contents: Content[] }
 
   constructor() {
     // 新品', '臥室', '家具', '燈光', '用餐'
     this.title = [
-      { text: '新品', kind: 'new' },
-      { text: '臥室', kind: 'bedRoom' },
-      { text: '家具', kind: 'furniture' },
-      { text: '燈光', kind: 'floorLamp' },
-      { text: '用餐', kind: 'dining' }]
+      { text: 'NEW', kind: 'new' },
+      { text: 'BEDROOM', kind: 'bedRoom' },
+      { text: 'FURNITURE', kind: 'furniture' },
+      { text: 'KITCHEN', kind: 'kitchen' },
+      { text: 'DINING', kind: 'dining' }]
     this.bedRoom = {
       items: [
         '床',
@@ -63,7 +63,7 @@ export class CollectionItem {
       ],
     }
 
-    this.floorLamp = {
+    this.kitchen = {
       items: [
         '落地燈',
         '吊燈',
@@ -97,13 +97,4 @@ export class CollectionItem {
       ],
     }
   }
-
-  // output () {
-  //   return {
-  //     [BedRoom:string]: this.BedRoom,
-  //     Furniture: this.Furniture,
-  //     FloorLamps: this.FloorLamps,
-  //     Dining: this.Dining,
-  //   }
-  // }
 }

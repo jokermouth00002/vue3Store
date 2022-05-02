@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, getCurrentInstance, reactive, ref, toRef } from 'vue'
+import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 const router = useRouter()
 const route = useRoute()
@@ -15,21 +15,18 @@ const props = defineProps<{
 const goPath = (text: string) => {
   const pathString = text.replace(/\s/g, '-')
   router.push({ path: `${nowPath.value}/products/${pathString}` })
-  console.log(`${nowPath.value}/products/${pathString}`)
 }
-
-const productInfo = reactive(props.productInfo)
 </script>
 <template>
   <div>
-    <div class="box pointer" @click="goPath(productInfo.productName)">
+    <div class="box pointer" @click="goPath(props.productInfo.productName)">
       <a class="block">
-        <img class="w-100% pt-2rem" :src="productInfo.imgSource">
+        <img class="w-100% pt-2rem" :src="props.productInfo.imgSource">
       </a>
       <div class="pt-20px">
-        <span class="fontMaginia text-3xl"> {{ productInfo.productName }}</span>
+        <span class="fontMaginia text-3xl"> {{ props.productInfo.productName }}</span>
         <div class="pt-10px">
-          {{ ` $ ${productInfo.productPrice}` }}
+          {{ ` $ ${props.productInfo.productPrice}` }}
         </div>
       </div>
     </div>

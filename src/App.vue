@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import NavBarMenuDownVue from './components/NavBarMenuDown.vue'
+import { RouterView } from 'vue-router'
+// import NavBarMenuDownVue from './components/NavBarMenuDown.vue'
 import FunctionRow from '~/components/FunctionRow.vue'
 import PCNavBar from '~/components/PcNavBar.vue'
-import Footer from '~/components/Footer.vue'
+// import Footer from '~/components/Footer.vue'
 // import '~/assets/app.scss'
 </script>
 
