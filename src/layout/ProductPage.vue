@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { inject, ref } from 'vue'
 import InnerImageZoom from 'vue-inner-image-zoom'
 import RelatedProduct from '../components/RelatedProduct.vue'
 import { productsData } from '../FakeData'
@@ -72,7 +72,7 @@ const num = ref(0)
           <span class="font-bold"> $950 </span>
           <div class="flex py-1rem space-x-4">
             <div class="w-50% pt-10px">
-              <span> Option </span>
+              <span> COLOR </span>
               <el-select
                 v-model="value"
                 class="mt-2 mb-2 selector"
@@ -88,7 +88,7 @@ const num = ref(0)
               </el-select>
             </div>
             <div class="w-50% pt-10px">
-              <span> Color </span>
+              <span> SIZE </span>
               <el-select
                 v-model="value"
                 class="mt-2 mb-2 selector"

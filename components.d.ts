@@ -5,12 +5,9 @@
 declare module 'vue' {
   export interface GlobalComponents {
     CategoryMenu: typeof import('./src/components/CategoryMenu.vue')['default']
-    Checkbox: typeof import('./src/components/Checkbox.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
-    ElCheckbox: typeof import('element-plus/es')['ElCheckbox']
     ElInputNumber: typeof import('element-plus/es')['ElInputNumber']
     ElOption: typeof import('element-plus/es')['ElOption']
-    ElPagination: typeof import('element-plus/es')['ElPagination']
     ElSelect: typeof import('element-plus/es')['ElSelect']
     Footer: typeof import('./src/components/Footer.vue')['default']
     FunctionRow: typeof import('./src/components/FunctionRow.vue')['default']

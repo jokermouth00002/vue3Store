@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, reactive, ref, toRef } from 'vue'
+import { computed, reactive, ref } from 'vue'
 import { CollectionItem } from '../CollectionItem'
 // interface collectionType { bedRoom: []; furniture: []; dining: [] }
 

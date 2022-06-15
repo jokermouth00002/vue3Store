@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
-// import NavBarMenuDownVue from './components/NavBarMenuDown.vue'
 import FunctionRow from '~/components/FunctionRow.vue'
 import PCNavBar from '~/components/PcNavBar.vue'
 // import Footer from '~/components/Footer.vue'
@@ -16,7 +15,7 @@ import PCNavBar from '~/components/PcNavBar.vue'
     //- NavBarMenuDown(selectedCollection='bedRoom')
 
   RouterView
-  //- Footer.absoulte
+  Footer(style="background-color: black; color:white").absoulte
 </template>
 
 <style scoped>
@@ -25,5 +24,8 @@ import PCNavBar from '~/components/PcNavBar.vue'
   font-size: 20px;
   font-weight: 300;
   color: #656565;
+}
+Footer{
+  /* background-color: black; */
 }
 </style>

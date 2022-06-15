@@ -1,14 +1,13 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-interface Option {
-  category: string
-  title: string
-  details: { text: string; status: boolean }[]
-}
+import type { addedStatusOption } from '~/interfaceDict'
 const showDetails = ref(false)
 const props = defineProps<{
-  option: Option
+  option: addedStatusOption
+  mode: string
+  sortBy?: string
 }>()
+// const sortBy = ref('')
 </script>
 <template>
   <div
@@ -40,6 +39,8 @@ const props = defineProps<{
         bg-light-50
       "
     >
+      <!-- <div v-if="mode==='checkBox'">
+      </div> -->
       <div
         v-for="(item, index) in props.option.details"
         :key="index"
@@ -53,6 +54,18 @@ const props = defineProps<{
           :label="item.text"
         />
       </div>
+      <!-- <div v-if="mode==='radio'">
+        <el-radio-group v-model="sortBy" class="ml-4">
+          <el-radio
+            v-for="(item,index) in props.option.details"
+            :key="index"
+            class="bg-light-50 hidden pointer"
+            :label="item.text" size="large"
+          >
+            {{ item.text }}
+          </el-radio>
+        </el-radio-group>
+      </div> -->
     </div>
   </div>
 </template>

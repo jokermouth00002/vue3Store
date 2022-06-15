@@ -7,17 +7,15 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import { reactive, watch } from 'vue'
 import { Navigation, Pagination } from 'swiper'
 import { useRoute, useRouter } from 'vue-router'
+import type { ProductInfo } from '~/interfaceDict'
+
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 const router = useRouter()
 const route = useRoute()
 const modules = [Navigation, Pagination]
-interface ProductInfo {
-  imgSource: string
-  productName: string
-  productPrice: number
-}
+
 const props = defineProps<{ productsArr: ProductInfo[] }>()
 const productsArr = reactive(props.productsArr)
 const goPath = (item: any) => {
@@ -58,7 +56,7 @@ watch(route, () => {
             <swiper-slide v-for="(item, index) in productsArr" :key="index">
               <div class="box pointer" @click="goPath(item)">
                 <a class="block">
-                  <img class="w-100% pt-2rem noSelect" :src="item.imgSource" />
+                  <img class="w-100% pt-2rem noSelect" :src="item.imgSource[0]" />
                 </a>
                 <div class="pt-10px">
                   <p class="fontMaginia text-3xl text-area">

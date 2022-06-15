@@ -1,27 +1,21 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
-const router = useRouter()
-const route = useRoute()
-const nowPath = computed(() => route.path)
-interface ProductInfo {
-  imgSource: string
-  productName: string
-  productPrice: number
-}
+import { defineEmits } from 'vue'
+// import { useRoute, useRouter } from 'vue-router'
+import type { ProductInfo } from '~/interfaceDict'
+
 const props = defineProps<{
   productInfo: ProductInfo
 }>()
-const goPath = (text: string) => {
-  const pathString = text.replace(/\s/g, '-')
-  router.push({ path: `${nowPath.value}/products/${pathString}` })
+const emits = defineEmits(['toProductPage'])
+const goPath = (): void => {
+  emits('toProductPage', props.productInfo)
 }
 </script>
 <template>
   <div>
-    <div class="box pointer" @click="goPath(props.productInfo.productName)">
+    <div class="box pointer" @click="goPath">
       <a class="block">
-        <img class="w-100% pt-2rem" :src="props.productInfo.imgSource">
+        <img class="w-100% pt-2rem" :src="props.productInfo.imgSource[0]">
       </a>
       <div class="pt-20px">
         <span class="fontMaginia text-3xl"> {{ props.productInfo.productName }}</span>
@@ -43,9 +37,13 @@ const goPath = (text: string) => {
     height: 25rem;
     background-color: white;
     padding:3rem;
+    & img{
+      max-width:300px ;
+      max-height:300px ;
+    }
   }
   a:hover{
-    padding:2.5rem;
+    padding:4rem;
     transition:all 0.3s;
     opacity: 0.8;
   }

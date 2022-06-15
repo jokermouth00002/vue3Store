@@ -1,11 +1,12 @@
 <script setup lang="ts"></script>
-<template lang="pug">
-div.w-full
-  .bottomBorder.w-full
-    .flex.justify-around.px-20.py-10
-      div 123
-      div 321
-      div 555
+<template>
+  <div class="w-full">
+    <div class="bottomBorder">
+      <div class="flex justify-around items-center px-20 h-12">
+        Created By Chris Tsao
+      </div>
+    </div>
+  </div>
 </template>
 
 <style scoped>
