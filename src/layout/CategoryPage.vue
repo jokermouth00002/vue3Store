@@ -2,7 +2,8 @@
 /* eslint-disable @typescript-eslint/comma-dangle */
 /* eslint-disable @typescript-eslint/brace-style */
 
-import { computed, provide, ref } from 'vue'
+import type { Ref } from 'vue'
+import { computed, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import {
   bedRoomType, diningType,
@@ -13,15 +14,16 @@ import {
 import type { OriginOption, ProductInfo } from '~/interfaceDict'
 import ProductBox from '~/components/ProductBox.vue'
 import CategoryMenu from '~/components/CategoryMenu.vue'
-
 const route = useRoute()
 const router = useRouter()
-const totalProducts = ref(productsData)
+
+const totalProducts: Ref<ProductInfo[]> = ref(productsData)
 const productItemsInfo = computed(() => {
   return totalProducts.value.filter((p) => {
     return p.category === route.params.category
   })
 })
+
 const productsNumber = ref(productItemsInfo.value.length)
 const nowPage = ref(1)
 const pageSize = ref(20)
@@ -174,8 +176,7 @@ const filteredProducts = computed(() => {
 })
 
 const toProductPage = (propductInfo: ProductInfo): void => {
-  provide('product', propductInfo)
-  const pathString = propductInfo.productName.replace(/\s/g, '-')
+  const pathString = propductInfo.productName.replaceAll(/\s/g, '-')
   router.push({ path: `${propductInfo.type}/products/${pathString}` })
 }
 </script>

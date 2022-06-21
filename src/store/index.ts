@@ -1,20 +1,12 @@
 
-import { reactive, readonly } from 'vue'
-import { createStore } from 'vuex'
-export default createStore({
-  state: {
-    loginState: false,
-    menuState: false,
-  },
-  getters: {
-    loginState: state => state.loginState,
-    menuState: state => state.menuState,
-  },
-})
-const state = reactive({
-  productInfo: {},
-})
-
+import type { ProductInfo } from '~/interfaceDict'
 // export default {
 //   state: readonly(state),
 // }
+
+const state: { products: ProductInfo[] | []; test: string } = {
+  products: [],
+  test: '',
+}
+
+export default ref(state)

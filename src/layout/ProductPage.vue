@@ -1,12 +1,21 @@
 <script lang="ts" setup>
-import { inject, ref } from 'vue'
+import { ref } from 'vue'
+import { useRoute } from 'vue-router'
+
 import InnerImageZoom from 'vue-inner-image-zoom'
 import RelatedProduct from '../components/RelatedProduct.vue'
 import { productsData } from '../FakeData'
 import ProductDetail from '~/components/ProductDetail.vue'
+import state from '~/store'
 
+const route = useRoute()
 const value = ref('')
 const addFavorite = ref(false)
+const productName = route.path.split('products/')[1].replaceAll('-', ' ')
+const productInfo = ref(state.value.products.filter(i => i.productName === productName)[0])
+const showProductPic = computed(() => {
+  return productInfo.value.imgSource[0]
+})
 const options = [
   {
     value: 'Option1',
@@ -36,25 +45,22 @@ const num = ref(0)
     <div class="flex w-100%">
       <div w="2/3">
         <div class="flex items-center noSelect calcHeight">
-          <div class="flex flex-col items-center">
-            <i-ion-ios-arrow-up class="pb-1rem pointer" />
+          <div class="flex flex-col items-center pr-20">
             <img
+              v-for="(img,index) in productInfo.imgSource"
+              :key="index"
               class="w-80px h-80px pb-10px pointer"
-              src="//cdn.shopify.com/s/files/1/1087/6904/products/83fa05ceb61f887a7e5731c2cd61f181_1400x.jpg?v=1571438954"
+              :src="img"
             >
-            <img
-              class="w-80px h-80px pb-10px pointer"
-              src="//cdn.shopify.com/s/files/1/1087/6904/products/83fa05ceb61f887a7e5731c2cd61f181_1400x.jpg?v=1571438954"
-            >
-            <i-ion-ios-arrow-down class="pt-1rem pointer" />
           </div>
-          <div class="flex w-30vw justify-center relative flex-grow">
+          <div class="flex justify-center relative flex-grow">
             <inner-image-zoom
-              class="w-100%"
-              src="//cdn.shopify.com/s/files/1/1087/6904/products/83fa05ceb61f887a7e5731c2cd61f181_1400x.jpg?v=1571438954"
-              zoomSrc="//cdn.shopify.com/s/files/1/1087/6904/products/83fa05ceb61f887a7e5731c2cd61f181_1400x.jpg?v=1571438954"
+              class="w-100"
+              :src="productInfo.imgSource[0]"
+              :zoomSrc="productInfo.imgSource[0]"
               :hideHint="true"
             />
+            <!-- <img :src="productInfo.imgSource[0]"> -->
             <i-ph-magnifying-glass-bold
               class="absolute gray bottom-0 right-20px"
             />
@@ -62,82 +68,6 @@ const num = ref(0)
               <i-ic-baseline-arrow-downward />
               Scroll
             </div>
-          </div>
-        </div>
-        <div class="priceInfo">
-          <span class="brandFont text-xl"> OEUF </span>
-          <div class="fontMaginia text-3xl py-2.5rem">
-            River Twin Bed
-          </div>
-          <span class="font-bold"> $950 </span>
-          <div class="flex py-1rem space-x-4">
-            <div class="w-50% pt-10px">
-              <span> COLOR </span>
-              <el-select
-                v-model="value"
-                class="mt-2 mb-2 selector"
-                placeholder="Select"
-                size="large"
-              >
-                <el-option
-                  v-for="item in options"
-                  :key="item.value"
-                  :label="item.label"
-                  :value="item.value"
-                />
-              </el-select>
-            </div>
-            <div class="w-50% pt-10px">
-              <span> SIZE </span>
-              <el-select
-                v-model="value"
-                class="mt-2 mb-2 selector"
-                placeholder="Select"
-                size="large"
-              >
-                <el-option
-                  v-for="item in options"
-                  :key="item.value"
-                  :label="item.label"
-                  :value="item.value"
-                />
-              </el-select>
-            </div>
-          </div>
-          <div class="w-100% pb-20px pt-10px">
-            <span> QUANTITY </span>
-            <el-input-number
-              v-model="num"
-              :min="1"
-              :max="99"
-              class="w-100% mt-2 text-lg selector"
-            />
-          </div>
-          <div class="pt-3rem">
-            <el-button
-              class="w-100% h-30px"
-              type="warning"
-              style="box-sizing: content-box"
-            >
-              <span> Add To Cart </span>
-            </el-button>
-            <a
-              class="mt-10px flex pt-1rem pointer"
-              @click="addFavorite = !addFavorite"
-            >
-              <i-ion-heart class="pr-10px" :class="{ red: addFavorite }" />
-              View in Wishlist
-            </a>
-          </div>
-          <div class="flex justify-around mt-3rem py-20px border-topBottom">
-            <span class="flex item-center pointer">
-              <i-ph-question /> QUESTIONS</span>
-            <span class="flex item-center pointer">
-              <i-ic-baseline-email /> EMAIL
-            </span>
-            <span class="flex item-center pointer">
-              <i-ic-baseline-phone /> 02-9123456
-            </span>
           </div>
         </div>
         <section
@@ -177,6 +107,82 @@ const num = ref(0)
         <ProductDetail class="pt-1rem" />
         <RelatedProduct :productsArr="productsData" />
       </div>
+      <div w="1/3" class="priceInfo">
+        <span class="brandFont text-xl"> OEUF </span>
+        <div class="fontMaginia text-3xl py-2.5rem">
+          {{ productInfo.productName }}
+        </div>
+        <span class="font-bold"> {{ `$${productInfo.productPrice}` }} </span>
+        <div class="flex py-1rem space-x-4">
+          <div class="w-50% pt-10px">
+            <span> COLOR </span>
+            <el-select
+              v-model="value"
+              class="mt-2 mb-2 selector"
+              placeholder="Select"
+              size="large"
+            >
+              <el-option
+                v-for="item in options"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              />
+            </el-select>
+          </div>
+          <div class="w-50% pt-10px">
+            <span> SIZE </span>
+            <el-select
+              v-model="value"
+              class="mt-2 mb-2 selector"
+              placeholder="Select"
+              size="large"
+            >
+              <el-option
+                v-for="item in options"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              />
+            </el-select>
+          </div>
+        </div>
+        <div class="w-100% pb-20px pt-10px">
+          <span> QUANTITY </span>
+          <el-input-number
+            v-model="num"
+            :min="1"
+            :max="99"
+            class="w-100% mt-2 text-lg selector"
+          />
+        </div>
+        <div class="pt-3rem">
+          <el-button
+            class="w-100% h-30px"
+            type="warning"
+            style="box-sizing: content-box"
+          >
+            <span> Add To Cart </span>
+          </el-button>
+          <a
+            class="mt-10px flex pt-1rem pointer"
+            @click="addFavorite = !addFavorite"
+          >
+            <i-ion-heart class="pr-10px" :class="{ red: addFavorite }" />
+            View in Wishlist
+          </a>
+        </div>
+        <div class="flex justify-around mt-3rem py-20px border-topBottom">
+          <span class="flex item-center pointer">
+            <i-ph-question /> QUESTIONS</span>
+          <span class="flex item-center pointer">
+            <i-ic-baseline-email /> EMAIL
+          </span>
+          <span class="flex item-center pointer">
+            <i-ic-baseline-phone /> 02-9123456
+          </span>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -193,8 +199,6 @@ const num = ref(0)
   position: fixed;
   top: 0;
   right: 0;
-  width: 100%;
-  height: 100%;
 }
 .extend-background--left {
   padding-left: 3000px;

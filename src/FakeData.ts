@@ -217,15 +217,6 @@ const productsData: ProductInfo[] = [
     quickShip: true,
     styleOptions: [],
   },
-  {
-    imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/3d04c6243e260725b2d47cb13c55ccea_large.jpg?v=1571438954'],
-    productName: 'Perch Loft Bed - Full Size',
-    productPrice: 1995,
-    category: 'bedRoom',
-    type: 'Beds',
-    quickShip: false,
-    styleOptions: [],
-  },
   // Bedroom-here
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/83fa05ceb61f887a7e5731c2cd61f181_large.jpg?v=1571438954', 'https://cdn.shopify.com/s/files/1/1087/6904/products/ad6472ed3868138c703f3651a400e80d_1400x.jpg?v=1571438954'],
@@ -340,7 +331,7 @@ const productsData: ProductInfo[] = [
   // Furniture-here
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/4164_BlackCherry-01_large.png?v=1649892200'],
-    productName: 'Luxembourg Bar Cart w/ Wheels',
+    productName: 'Luxembourg Bar Cart Wheels',
     productPrice: 1307,
     category: 'furniture',
     type: 'Bar Cart',
