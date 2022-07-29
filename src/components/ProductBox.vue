@@ -1,25 +1,26 @@
 <script setup lang="ts">
-import { defineEmits } from 'vue'
 // import { useRoute, useRouter } from 'vue-router'
 import type { ProductInfo } from '~/interfaceDict'
 
 const props = defineProps<{
   productInfo: ProductInfo
 }>()
-const emits = defineEmits(['toProductPage'])
+const emits = defineEmits(['to-productpage'])
 const goPath = (): void => {
-  emits('toProductPage', props.productInfo)
+  emits('to-productpage', props.productInfo)
 }
 </script>
 <template>
   <div>
     <div class="box pointer" @click="goPath">
       <a class="block">
-        <img class="w-100% pt-2rem" :src="props.productInfo.imgSource[0]">
+        <img :src="props.productInfo.imgSource[0]">
       </a>
-      <div class="pt-20px">
-        <span class="fontMaginia text-3xl"> {{ props.productInfo.productName }}</span>
-        <div class="pt-10px">
+      <div class="namePriceRow">
+        <div class="fontMaginia fontSize">
+          {{ props.productInfo.productName }}
+        </div>
+        <div class="pt-10px fontSize">
           {{ ` $ ${props.productInfo.productPrice}` }}
         </div>
       </div>
@@ -38,6 +39,7 @@ const goPath = (): void => {
     background-color: white;
     padding:3rem;
     & img{
+      width: 100%;
       max-width:300px ;
       max-height:300px ;
     }
@@ -48,8 +50,41 @@ const goPath = (): void => {
     opacity: 0.8;
   }
 }
+.namePriceRow{
+  padding-top:20px ;
+  .fontSize{
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+}
 .fontMaginia {
   font-family: 'Maginia', sans-serif;
+}
+@media screen and (max-width:768px){
+  .box{
+    width: 10rem;
+    a{
+      width: 10rem;
+      height: 10rem;
+      padding:20px;
+      & img{
+        max-width:150px ;
+        max-height:150px ;
+      }
+    }
+    a:hover{
+        width: 10rem;
+        height: 10rem;
+        padding:20px;
+    }
+  }
+  .namePriceRow{
+    padding-top:5px ;
+    .fontSize{
+      font-size: 1.25rem;
+      line-height: 1.75rem;
+    }
+  }
 }
 
 </style>

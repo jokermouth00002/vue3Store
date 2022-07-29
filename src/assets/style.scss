@@ -1,5 +1,5 @@
 .pointer {
-  cursor: pointer
+  cursor: pointer;
 }
 
 .noSelect {
@@ -8,6 +8,9 @@
 
 .fontMaginia {
   font-family: 'Maginia', sans-serif;
+}
+.textVertical{
+  writing-mode: vertical-rl;
 }
 
 .red {

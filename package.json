@@ -6,6 +6,7 @@
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview --port 5050",
     "typecheck": "vue-tsc --noEmit",
+    "s3": "aws s3 cp dist s3://shop-demo2.christsao.me --recursive --acl=public-read --profile=default",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
@@ -15,6 +16,7 @@
     "pug": "^3.0.2",
     "swiper": "^8.1.0",
     "unplugin-icons": "^0.13.4",
+    "vite-plugin-pages": "^0.25.0",
     "vue": "^3.2.29",
     "vue-inner-image-zoom": "^2.0.0",
     "vue-router": "^4.0.12"
@@ -25,6 +27,7 @@
     "@iconify-json/ic": "^1.1.2",
     "@iconify-json/ion": "^1.1.1",
     "@iconify-json/ph": "^1.1.1",
+    "@iconify/json": "^2.1.79",
     "@rushstack/eslint-patch": "^1.1.0",
     "@types/node": "^16.11.22",
     "@unocss/extractor-pug": "^0.26.2",

@@ -1,12 +1,20 @@
 
-import type { ProductInfo } from '~/interfaceDict'
+import type { NowUserWantedProduct, ProductInfo } from '~/interfaceDict'
+
 // export default {
 //   state: readonly(state),
 // }
 
-const state: { products: ProductInfo[] | []; test: string } = {
+const state: {
+  products: ProductInfo[]
+  shoppingCart: NowUserWantedProduct[]
+  productsIDString: string[]
+  overlay: boolean
+} = {
   products: [],
-  test: '',
+  shoppingCart: [],
+  productsIDString: [],
+  overlay: false,
 }
 
 export default ref(state)

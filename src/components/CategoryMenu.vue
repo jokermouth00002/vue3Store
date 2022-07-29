@@ -1,13 +1,14 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import type { addedStatusOption } from '~/interfaceDict'
+import { ref, toRef } from 'vue'
+import type { AddedStatusOption } from '~/interfaceDict'
 const showDetails = ref(false)
 const props = defineProps<{
-  option: addedStatusOption
+  option: AddedStatusOption
   mode: string
   sortBy?: string
 }>()
-// const sortBy = ref('')
+const option = toRef(props, 'option')
+
 </script>
 <template>
   <div
@@ -20,10 +21,12 @@ const props = defineProps<{
       class="optionButton w-max flex flex-col pointer"
       :class="{ hoverStyle: showDetails }"
     >
-      <span class="font-normal">
-        {{ props.option.title }}
-        <i class="fa-solid fa-angle-down" style="font-size:14px" />
-      </span>
+      <div class="flex">
+        <span class="font-normal">
+          {{ option.title.content }}
+        </span>
+        <i-uil:angle-down />
+      </div>
     </div>
 
     <div
@@ -42,7 +45,7 @@ const props = defineProps<{
       <!-- <div v-if="mode==='checkBox'">
       </div> -->
       <div
-        v-for="(item, index) in props.option.details"
+        v-for="(item, index) in option.details"
         :key="index"
         class="bg-light-50 hidden pointer"
         :class="{ optionDetailsButton: showDetails }"
@@ -57,7 +60,7 @@ const props = defineProps<{
       <!-- <div v-if="mode==='radio'">
         <el-radio-group v-model="sortBy" class="ml-4">
           <el-radio
-            v-for="(item,index) in props.option.details"
+            v-for="(item,index) in option.details"
             :key="index"
             class="bg-light-50 hidden pointer"
             :label="item.text" size="large"

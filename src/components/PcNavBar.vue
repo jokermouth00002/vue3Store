@@ -6,43 +6,49 @@ const router = useRouter()
 const collection = reactive(new CollectionItem())
 const showMenuDown = ref(false)
 
-const routerTo = (text: string) => {
-  router.push({ path: `/collections/${text}` })
+const goPath = (path: string) => {
+  if (path !== 'home')
+    router.push({ path: `/collections/${path.toLocaleLowerCase()}` })
+  else
+    router.push({ path: '/' })
 }
-const selectedCollection = ref('BedRoom')
+const selectedCollection = ref('bedroom')
 
-const showMenu = (item: any) => {
+const showMenu = (item: string) => {
   showMenuDown.value = true
   selectedCollection.value = item
 }
-function goHomePage() {
-  router.push({ path: '/' })
-}
 
 const collectionMenuDown = computed(() => {
-  if (selectedCollection.value === 'BedRoom') return collection.bedRoom
-  if (selectedCollection.value === 'Furniture') return collection.furniture
-  if (selectedCollection.value === 'FloorLamp') return collection.floorLamp
-  if (selectedCollection.value === 'Dining') return collection.dining
+  if (selectedCollection.value === 'bedroom') return collection.bedRoom
+  if (selectedCollection.value === 'furniture') return collection.furniture
+  if (selectedCollection.value === 'kitchen') return collection.kitchen
+  if (selectedCollection.value === 'dining') return collection.dining
   return collection.bedRoom
 })
 </script>
 
 <template>
-  <div class="relative pl-20 pr-20">
-    <div class="flex w-full justify-between items-center py-15px">
-      <i class="fa-solid fa-store text-4xl pointer" @click="goHomePage()" />
-      <div class="items flex relative space-x-12">
-        <div
-          v-for="(item,index) in collection.title" :key="index"
-          class="text-2xl pointer"
-          @mouseenter="showMenu(item.kind)"
-          @click="routerTo(item.kind)"
-        >
-          {{ item.text }}
+  <div class="relative pl-20 pr-20 bg-light-50">
+    <div class="w-100%">
+      <div class="flex w-full justify-between items-center py-15px">
+        <i-ion:home-outline class="text-4xl" style="color:black" @click="goPath('home')" />
+        <div class="items flex relative space-x-12">
+          <div
+            v-for="(item,index) in collection.title" :key="index"
+            class="text-2xl pointer"
+            @mouseenter="showMenu(item.kind)"
+            @click="goPath(selectedCollection)"
+          >
+            {{ item.text }}
+          </div>
         </div>
+        <div class="w-1px" />
       </div>
-      <i class="fa-solid fa-magnifying-glass text-2xl " />
+      <span class="absolute top-20px right-1rem flex items-center pointer">
+        <span class="mr-10px"> SEARCH </span>
+        <i-ion:search class="text-2xl" />
+      </span>
     </div>
 
     <div
@@ -52,7 +58,12 @@ const collectionMenuDown = computed(() => {
     >
       <section class="flex justify-center text-gray-50 w-full">
         <div>
-          <ul v-for="(item,index) in collectionMenuDown.items" :key="index" class="pointer">
+          <ul
+            v-for="(item,index) in collectionMenuDown.items"
+            :key="index"
+            class="pointer"
+            @click="goPath(selectedCollection)"
+          >
             {{ item }}
           </ul>
         </div>

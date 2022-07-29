@@ -3,11 +3,12 @@ interface OriginOption {
   details: string[]
   title: string
 }
-interface addedStatusOption {
+interface AddedStatusOption {
   category: string
-  title: string
+  title: { content: string; status: boolean }
   details: { text: string; status: boolean }[]
 }
+
 interface ProductInfo {
   imgSource: string[]
   productName: string
@@ -15,7 +16,24 @@ interface ProductInfo {
   category: string
   type: string
   quickShip: boolean
-  styleOptions: { title?: string; details?: { text: string; id: string }[] }[]
+  styleOptions: {
+    title: keyof optionsText
+    details: {
+      text: string
+      id: string
+    }[]
+  }[]
+}
+interface NowUserWantedProduct {
+  quantity: number
+  color: string
+  size: string
+  IDString: string
+  productInfo: ProductInfo
+}
+interface optionsText {
+  color: string
+  size: string
 }
 
-export { OriginOption, addedStatusOption, ProductInfo }
+export { OriginOption, AddedStatusOption, ProductInfo, NowUserWantedProduct }

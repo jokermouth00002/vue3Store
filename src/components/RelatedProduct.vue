@@ -16,7 +16,7 @@ const router = useRouter()
 const route = useRoute()
 const modules = [Navigation, Pagination]
 
-const props = defineProps<{ productsArr: ProductInfo[] }>()
+const props = defineProps<{ productsArr: ProductInfo[]; title: string }>()
 const productsArr = reactive(props.productsArr)
 const goPath = (item: any) => {
   const pathString = item.productName.replace(/\s/g, '-')
@@ -41,7 +41,7 @@ watch(route, () => {
       "
     >
       <span class="sectionTitle flex justify-center fontMaginia text-5xl">
-        Customers Also Viewed
+        {{ title }}
       </span>
       <div class="flex justify-center w-100% items-center space-x-4">
         <div class="flex">

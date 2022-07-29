@@ -81,7 +81,7 @@ const kitchenType = {
 
 const productsData: ProductInfo[] = [
   {
-    imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/57_38ba5d25-6134-459b-b059-0ccd4db39435_large.jpeg?v=1637262873'],
+    imgSource: ['https://cdn.shopify.com/s/files/1/1087/6904/products/57_38ba5d25-6134-459b-b059-0ccd4db39435_1400x.jpeg?v=1571439105'],
     productName: 'Simple Linen Quilt',
     productPrice: 450,
     category: 'bedRoom',
@@ -90,7 +90,7 @@ const productsData: ProductInfo[] = [
     styleOptions: [],
   },
   {
-    imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/525d45aab11cd64b7410f854f9184381_3c8a436c-5443-409f-8d05-7f296eac8771_large.jpg?v=1571438992'],
+    imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/525d45aab11cd64b7410f854f9184381_3c8a436c-5443-409f-8d05-7f296eac8771_1400x.jpg?v=1571438992'],
     productName: 'Spun Organic Quilt',
     productPrice: 85,
     category: 'bedRoom',
@@ -99,7 +99,7 @@ const productsData: ProductInfo[] = [
     styleOptions: [],
   },
   {
-    imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/565326c9c75218604e32da380cdbcc75_large.jpg?v=1571438992'],
+    imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/565326c9c75218604e32da380cdbcc75_1400x.jpg?v=1571438992'],
     productName: 'Spun Organic Fitted Crib Sheet',
     productPrice: 55,
     category: 'bedRoom',
@@ -109,7 +109,7 @@ const productsData: ProductInfo[] = [
 
   },
   {
-    imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/4dc380a60131260945ce4f656e44e525_2f255ccf-3ea1-423a-bef0-100f67b65b00_large.jpg?v=1571438992'],
+    imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/4dc380a60131260945ce4f656e44e525_2f255ccf-3ea1-423a-bef0-100f67b65b00_1400x.jpg?v=1571438992'],
     productName: 'Join Organic Quilt',
     productPrice: 85,
     category: 'bedRoom',
@@ -118,7 +118,7 @@ const productsData: ProductInfo[] = [
     styleOptions: [],
   },
   {
-    imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/6f790e43553eb0d4b28ba32cc7290804_large.jpg?v=1592491461'],
+    imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/6f790e43553eb0d4b28ba32cc7290804_1400x.jpg?v=1592491461'],
     productName: 'Join Organic Fitted Crib Sheet',
     productPrice: 55,
     category: 'bedRoom',
@@ -127,7 +127,7 @@ const productsData: ProductInfo[] = [
     styleOptions: [],
   },
   {
-    imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/Bed_cover_-_OBS_skal_duplikeres_large.jpg?v=1586681732'],
+    imgSource: ['https://cdn.shopify.com/s/files/1/1087/6904/products/Bed_cover_-_OBS_skal_duplikeres_1400x.jpg?v=1586681732'],
     productName: 'Daze Bedspread',
     productPrice: 275,
     category: 'bedRoom',
@@ -137,7 +137,7 @@ const productsData: ProductInfo[] = [
   },
   // Bedroom-here
   {
-    imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/82767314228f0fd9305c05e01a0b9fdd_large.jpg?v=1571438954'],
+    imgSource: ['https://cdn.shopify.com/s/files/1/1087/6904/products/82767314228f0fd9305c05e01a0b9fdd_1400x.jpg?v=1571438954'],
     productName: 'Perch Bunk Bed',
     productPrice: 1980,
     category: 'bedRoom',
@@ -146,7 +146,7 @@ const productsData: ProductInfo[] = [
     styleOptions: [],
   },
   {
-    imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/2f800d23b699f88d57aceac678b02193_large.jpg?v=1571438954'],
+    imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/2f800d23b699f88d57aceac678b02193_1400x.jpg?v=1571438954'],
     productName: 'River Twin Bed',
     productPrice: 950,
     category: 'bedRoom',
@@ -155,7 +155,7 @@ const productsData: ProductInfo[] = [
     styleOptions: [],
   },
   {
-    imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/web-perch-lower-bed-001_jpg_large.jpg?v=1571439053'],
+    imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/web-perch-lower-bed-001_jpg_1400x.jpg?v=1571439053'],
     productName: 'Perch Twin Lower Bed - White',
     productPrice: 450,
     category: 'bedRoom',
@@ -164,7 +164,7 @@ const productsData: ProductInfo[] = [
     styleOptions: [],
   },
   {
-    imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/fc8075a494d94b8ea46adb556ab2486e_large.jpg?v=1571438954'],
+    imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/fc8075a494d94b8ea46adb556ab2486e_1400x.jpg?v=1571438954'],
     productName: 'Perch Toddler Bed',
     productPrice: 560,
     category: 'bedRoom',
@@ -173,7 +173,7 @@ const productsData: ProductInfo[] = [
     styleOptions: [],
   },
   {
-    imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/Perch_Trundle_Twin_Bed_1_large.jpg?v=1571439053'],
+    imgSource: ['https://cdn.shopify.com/s/files/1/1087/6904/products/Perch_Trundle_Twin_Bed_1_1400x.jpg?v=1571439053'],
     productName: 'Perch Trundle Twin Bed',
     productPrice: 540,
     category: 'bedRoom',
@@ -182,7 +182,7 @@ const productsData: ProductInfo[] = [
     styleOptions: [],
   },
   {
-    imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/trundlemattressperspective-cropped_800x800_b85d50dd-71f5-46d5-a3d6-fd32bd384b06_large.jpg?v=1625855476'],
+    imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/trundlemattressperspective-cropped_800x800_b85d50dd-71f5-46d5-a3d6-fd32bd384b06_1400x.jpg?v=1625855476'],
     productName: 'Universal Trundle Mattress',
     productPrice: 320,
     category: 'bedRoom',
@@ -191,7 +191,7 @@ const productsData: ProductInfo[] = [
     styleOptions: [],
   },
   {
-    imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/110259210_1_large.jpg?v=1587145106'],
+    imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/110259210_1_1400x.jpg?v=1587145106'],
     productName: 'Kona Bed',
     productPrice: 1625,
     category: 'bedRoom',
@@ -200,7 +200,7 @@ const productsData: ProductInfo[] = [
     styleOptions: [],
   },
   {
-    imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/river_large.jpg?v=1571438954'],
+    imgSource: ['https://cdn.shopify.com/s/files/1/1087/6904/products/river_1400x.jpg?v=1571438954'],
     productName: 'River Trundle Bed',
     productPrice: 320,
     category: 'bedRoom',
@@ -209,32 +209,36 @@ const productsData: ProductInfo[] = [
     styleOptions: [],
   },
   {
-    imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/6f2778c007de59f6c700efee2fcc8dae_large.jpg?v=1571438954'],
+    imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/6f2778c007de59f6c700efee2fcc8dae_1400x.jpg?v=1571438954'],
     productName: 'Rhea Toddler Bed Conversion Kit',
     productPrice: 195,
     category: 'bedRoom',
     type: 'Beds',
     quickShip: true,
     styleOptions: [],
+
   },
   // Bedroom-here
+
   {
-    imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/83fa05ceb61f887a7e5731c2cd61f181_large.jpg?v=1571438954', 'https://cdn.shopify.com/s/files/1/1087/6904/products/ad6472ed3868138c703f3651a400e80d_1400x.jpg?v=1571438954'],
+    imgSource: ['https://cdn.shopify.com/s/files/1/1087/6904/products/83fa05ceb61f887a7e5731c2cd61f181_1400x.jpg?v=1571438954', 'https://cdn.shopify.com/s/files/1/1087/6904/products/ad6472ed3868138c703f3651a400e80d_1400x.jpg?v=1571438954'],
     productName: 'Mini Library',
     productPrice: 780,
     category: 'bedRoom',
     type: 'Bookshelves',
     quickShip: false,
-    styleOptions: [{ title: 'COLOR', details: [{ text: 'BLACK', id: '0' }, { text: 'WHITE', id: '1' }] }, { title: 'SIZE', details: [{ text: 'KING', id: '9' }, { text: 'QUEEZ', id: '8' }] }],
+    styleOptions: [{ title: 'color', details: [{ text: 'BLACK', id: '0' }, { text: 'WHITE', id: '1' }] }, { title: 'size', details: [{ text: 'KING', id: '9' }, { text: 'QUEEZ', id: '8' }] }],
+
   },
   {
-    imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/36ece0aae222d5b53cf18494165073b3_large.jpg?v=1571438954'],
+    imgSource: ['https://cdn.shopify.com/s/files/1/1087/6904/products/36ece0aae222d5b53cf18494165073b3_1400x.jpg?v=1571438954'],
     productName: 'Perch Bunk Bed Shelf',
     productPrice: 295,
     category: 'bedRoom',
     type: 'Bookshelves',
     quickShip: true,
     styleOptions: [],
+
   },
   // Furniture-here
   {
@@ -245,6 +249,7 @@ const productsData: ProductInfo[] = [
     type: '3 Seater Sofa',
     quickShip: true,
     styleOptions: [],
+
   },
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/5b9c7216ae522d9c28f1b96c6ce9c42c_large.jpg?v=1571438966'],
@@ -254,6 +259,7 @@ const productsData: ProductInfo[] = [
     type: '3 Seater Sofa',
     quickShip: false,
     styleOptions: [],
+
   },
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/KIT-3026S-YCR-HOME15_large.jpg?v=1637075956'],
@@ -263,6 +269,7 @@ const productsData: ProductInfo[] = [
     type: '3 Seater Sofa',
     quickShip: true,
     styleOptions: [],
+
   },
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/Sum_Modular_Sofa_3_seater_Black_Aluminum1_large.jpg?v=1613423892'],
@@ -272,6 +279,7 @@ const productsData: ProductInfo[] = [
     type: '3 Seater Sofa',
     quickShip: false,
     styleOptions: [],
+
   },
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/45003d8574ec735bda505e2eccf3023a_large.jpg?v=1571439022'],
@@ -281,26 +289,9 @@ const productsData: ProductInfo[] = [
     type: '3 Seater Sofa',
     quickShip: true,
     styleOptions: [],
-  },
-  {
-    imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/2505e27e33c259fc90638a901260df3d_large.jpg?v=1571439013'],
-    productName: 'Inheritance Sofa - Wool',
-    productPrice: 9000,
-    category: 'furniture',
-    type: '3 Seater Sofa',
-    quickShip: false,
-    styleOptions: [],
+
   },
   // Furniture-here
-  {
-    imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/Rico_sofa_100108-661_large.jpg?v=1642629535'],
-    productName: 'Rico 4 Seater Sofa - Boucle',
-    productPrice: 5455,
-    category: 'furniture',
-    type: '4 Seater Sofa',
-    quickShip: true,
-    styleOptions: [],
-  },
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/73ef082aa91781232718d8c381fe6307_large.jpg?v=1623941977'],
     productName: 'Sum Modular Sofa 3 seater- Aluminum Synergy',
@@ -309,6 +300,7 @@ const productsData: ProductInfo[] = [
     type: '4 Seater Sofa',
     quickShip: false,
     styleOptions: [],
+
   },
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/97b56a1c360caf9e1df146c7e0a011fc_large.jpg?v=1646938136'],
@@ -318,15 +310,7 @@ const productsData: ProductInfo[] = [
     type: '4 Seater Sofa',
     quickShip: false,
     styleOptions: [],
-  },
-  {
-    imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/9970160_Eave_Dining_Height_165_Moss_018_Black_4842ee73-d74e-4540-919b-24215ef50e05_large.jpg?v=1617026391'],
-    productName: 'Inheritance Sofa - Wool',
-    productPrice: 2495,
-    category: 'furniture',
-    type: '4 Seater Sofa',
-    quickShip: true,
-    styleOptions: [],
+
   },
   // Furniture-here
   {
@@ -337,6 +321,7 @@ const productsData: ProductInfo[] = [
     type: 'Bar Cart',
     quickShip: false,
     styleOptions: [],
+
   },
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/9a055ca5b336c3d726b461b8bb84610e_large.jpg?v=1632371117'],
@@ -346,6 +331,7 @@ const productsData: ProductInfo[] = [
     type: 'Bar Cart',
     quickShip: true,
     styleOptions: [],
+
   },
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/ScreenShot2020-04-26at3.10.37PM_large.png?v=1587928582'],
@@ -355,6 +341,7 @@ const productsData: ProductInfo[] = [
     type: 'Bar Cart',
     quickShip: false,
     styleOptions: [],
+
   },
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/4027A_large.jpg?v=1634683866'],
@@ -364,6 +351,7 @@ const productsData: ProductInfo[] = [
     type: 'Bar Cart',
     quickShip: true,
     styleOptions: [],
+
   },
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/2601-1000ExitTrolleyBlack3.4_Side_large.jpg?v=1587764668'],
@@ -373,6 +361,7 @@ const productsData: ProductInfo[] = [
     type: 'Bar Cart',
     quickShip: true,
     styleOptions: [],
+
   },
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/378_large.jpg?v=1571439090'],
@@ -382,6 +371,7 @@ const productsData: ProductInfo[] = [
     type: 'Bar Cart',
     quickShip: true,
     styleOptions: [],
+
   },
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/80a04cc1ebda68bc0033fc69978ee487_large.jpg?v=1571438891'],
@@ -391,6 +381,7 @@ const productsData: ProductInfo[] = [
     type: 'Bar Cart',
     quickShip: false,
     styleOptions: [],
+
   },
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/SD-E427-NU_large.jpg?v=1635450270'],
@@ -400,6 +391,7 @@ const productsData: ProductInfo[] = [
     type: 'Bar Cart',
     quickShip: true,
     styleOptions: [],
+
   },
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/sika-design-4025A-romeo-trolley-antique__89979.1553282815_large.jpg?v=1593369093'],
@@ -409,6 +401,7 @@ const productsData: ProductInfo[] = [
     type: 'Bar Cart',
     quickShip: true,
     styleOptions: [],
+
   },
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/9690T_large.jpg?v=1635016197'],
@@ -418,6 +411,7 @@ const productsData: ProductInfo[] = [
     type: 'Bar Cart',
     quickShip: true,
     styleOptions: [],
+
   },
   // Lighting-here
   {
@@ -428,6 +422,7 @@ const productsData: ProductInfo[] = [
     type: 'Andrew Neyer',
     quickShip: true,
     styleOptions: [],
+
   },
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/dafcf868f8135b07e0c942f05553cd5c_large.jpg?v=1607616514'],
@@ -437,6 +432,7 @@ const productsData: ProductInfo[] = [
     type: 'Andrew Neyer',
     quickShip: false,
     styleOptions: [],
+
   },
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/d30056aea716c2597a9cdc029cbfc6a1_large.jpg?v=1607615838'],
@@ -446,6 +442,7 @@ const productsData: ProductInfo[] = [
     type: 'Andrew Neyer',
     quickShip: true,
     styleOptions: [],
+
   },
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/web-Astro-Mobile-Light-No_3_jpg_large.jpg?v=1571439045'],
@@ -455,6 +452,7 @@ const productsData: ProductInfo[] = [
     type: 'Andrew Neyer',
     quickShip: false,
     styleOptions: [],
+
   },
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/ML-3-BLK-Mobile-Light_large.jpg?v=1607884534'],
@@ -464,6 +462,7 @@ const productsData: ProductInfo[] = [
     type: 'Andrew Neyer',
     quickShip: true,
     styleOptions: [],
+
   },
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/web-Astro-Mobile-Light-No_1_jpg_large.jpg?v=1637073527'],
@@ -473,6 +472,7 @@ const productsData: ProductInfo[] = [
     type: 'Andrew Neyer',
     quickShip: false,
     styleOptions: [],
+
   },
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/WhatsAppImage2020-12-11at3.20.23AM_large.jpg?v=1607884860'],
@@ -482,6 +482,7 @@ const productsData: ProductInfo[] = [
     type: 'Andrew Neyer',
     quickShip: true,
     styleOptions: [],
+
   },
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/web-Astro-Dome-Light_jpg_large.jpg?v=1571439045'],
@@ -491,6 +492,7 @@ const productsData: ProductInfo[] = [
     type: 'Andrew Neyer',
     quickShip: true,
     styleOptions: [],
+
   },
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/web-Astro-Mobile-Light-No_2_jpg_large.jpg?v=1571439045'],
@@ -500,6 +502,7 @@ const productsData: ProductInfo[] = [
     type: 'Andrew Neyer',
     quickShip: false,
     styleOptions: [],
+
   },
   {
     imgSource: ['///cdn.shopify.com/s/files/1/1087/6904/products/web-AstroGlobeLight_jpg_large.jpg?v=1607615518'],
@@ -509,6 +512,7 @@ const productsData: ProductInfo[] = [
     type: 'Andrew Neyer',
     quickShip: true,
     styleOptions: [],
+
   },
   // Lighting-here
   {
@@ -519,6 +523,7 @@ const productsData: ProductInfo[] = [
     type: 'Artek',
     quickShip: true,
     styleOptions: [],
+
   },
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/38bab21fe1fc86ac9c39d15ef29ba002_large.jpg?v=1639069420'],
@@ -528,6 +533,7 @@ const productsData: ProductInfo[] = [
     type: 'Artek',
     quickShip: true,
     styleOptions: [],
+
   },
   // Lighting-here
   {
@@ -538,6 +544,7 @@ const productsData: ProductInfo[] = [
     type: 'Bend Goods',
     quickShip: true,
     styleOptions: [],
+
   },
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/2ca570abf5fcdf2c7e34f922140a68bc_large.jpg?v=1571438953'],
@@ -547,6 +554,7 @@ const productsData: ProductInfo[] = [
     type: 'Bend Goods',
     quickShip: true,
     styleOptions: [],
+
   },
   // Dining-here
   {
@@ -557,6 +565,7 @@ const productsData: ProductInfo[] = [
     type: 'Bottega Del Vino Crystal',
     quickShip: true,
     styleOptions: [],
+
   },
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/BV-5_large.jpg?v=1571438874'],
@@ -566,6 +575,7 @@ const productsData: ProductInfo[] = [
     type: 'Bottega Del Vino Crystal',
     quickShip: true,
     styleOptions: [],
+
   },
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/BV-11_large.jpg?v=1571438874'],
@@ -575,6 +585,7 @@ const productsData: ProductInfo[] = [
     type: 'Bottega Del Vino Crystal',
     quickShip: true,
     styleOptions: [],
+
   },
   // Dining-here
   {
@@ -585,6 +596,7 @@ const productsData: ProductInfo[] = [
     type: 'By Lassen',
     quickShip: true,
     styleOptions: [],
+
   },
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/Kubuscenterpiece_big_black_1_large.jpg?v=1647661844'],
@@ -594,6 +606,7 @@ const productsData: ProductInfo[] = [
     type: 'By Lassen',
     quickShip: true,
     styleOptions: [],
+
   },
   // Dining-here
   {
@@ -604,6 +617,7 @@ const productsData: ProductInfo[] = [
     type: 'Cane Line',
     quickShip: true,
     styleOptions: [],
+
   },
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/9a055ca5b336c3d726b461b8bb84610e_large.jpg?v=1632371117'],
@@ -613,6 +627,7 @@ const productsData: ProductInfo[] = [
     type: 'Cane Line',
     quickShip: true,
     styleOptions: [],
+
   },
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/ScreenShot2020-04-26at3.10.37PM_large.png?v=1587928582'],
@@ -622,6 +637,7 @@ const productsData: ProductInfo[] = [
     type: 'Cane Line',
     quickShip: false,
     styleOptions: [],
+
   },
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/ScreenShot2020-04-13at8.48.19AM_large.png?v=1586782233'],
@@ -631,6 +647,7 @@ const productsData: ProductInfo[] = [
     type: 'Cane Line',
     quickShip: false,
     styleOptions: [],
+
   },
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/ClubTray-Square-01_large.jpg?v=1623952595'],
@@ -640,6 +657,7 @@ const productsData: ProductInfo[] = [
     type: 'Cane Line',
     quickShip: true,
     styleOptions: [],
+
   },
   // Kitchen-here
   {
@@ -650,6 +668,7 @@ const productsData: ProductInfo[] = [
     type: 'Baking Dish',
     quickShip: true,
     styleOptions: [],
+
   },
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/e61c95f62a33b1e08637da3610fd06ad_large.gif?v=1571438990'],
@@ -659,6 +678,7 @@ const productsData: ProductInfo[] = [
     type: 'Baking Dish',
     quickShip: true,
     styleOptions: [],
+
   },
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/012cbda2684fd5475a1fdfc30c6ea9cf_d02e6228-38c0-4b2f-ae24-81819d6e5328_large.jpg?v=1571438990'],
@@ -668,6 +688,7 @@ const productsData: ProductInfo[] = [
     type: 'Baking Dish',
     quickShip: true,
     styleOptions: [],
+
   },
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/eeaa9243b3d50ed80b57e40cb9c55eb2_3b575f11-4c62-4958-91ce-090d1ad97bb4_large.jpg?v=1571438990'],
@@ -677,6 +698,7 @@ const productsData: ProductInfo[] = [
     type: 'Baking Dish',
     quickShip: true,
     styleOptions: [],
+
   },
   // Kitchen-here
   {
@@ -687,6 +709,7 @@ const productsData: ProductInfo[] = [
     type: 'Boning',
     quickShip: false,
     styleOptions: [],
+
   },
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/b198110a3437c6ad655f9401f723dd54_large.jpg?v=1571438939'],
@@ -696,6 +719,7 @@ const productsData: ProductInfo[] = [
     type: 'Boning',
     quickShip: true,
     styleOptions: [],
+
   },
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/b89431ba4948e450cb9e6cb6016464f7_large.jpg?v=1571438938'],
@@ -705,6 +729,7 @@ const productsData: ProductInfo[] = [
     type: 'Boning',
     quickShip: true,
     styleOptions: [],
+
   },
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/5b6d724e5cd67041f16794e695dcc3b9_large.jpg?v=1571438938'],
@@ -714,6 +739,7 @@ const productsData: ProductInfo[] = [
     type: 'Boning',
     quickShip: true,
     styleOptions: [],
+
   },
   // Kitchen-here
   {
@@ -724,6 +750,7 @@ const productsData: ProductInfo[] = [
     type: 'Braiser',
     quickShip: false,
     styleOptions: [],
+
   },
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/feec648d2c8599a48547b4f2cc8e22aa_large.jpg?v=1571438989'],
@@ -733,6 +760,7 @@ const productsData: ProductInfo[] = [
     type: 'Braiser',
     quickShip: true,
     styleOptions: [],
+
   },
 
 ]

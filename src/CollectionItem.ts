@@ -16,17 +16,15 @@ export class CollectionItem {
   constructor() {
     // 新品', '臥室', '家具', '燈光', '用餐'
     this.title = [
-      { text: 'NEW', kind: 'new' },
       { text: 'BEDROOM', kind: 'bedRoom' },
       { text: 'FURNITURE', kind: 'furniture' },
       { text: 'KITCHEN', kind: 'kitchen' },
       { text: 'DINING', kind: 'dining' }]
     this.bedRoom = {
       items: [
-        '床',
-        '收納櫃',
-        '床頭櫃',
-        '棉被/枕頭',
+        'BEDS',
+        'BEDDING',
+        'BOOKSHELEFS',
       ],
       contents: [
         {
@@ -44,10 +42,8 @@ export class CollectionItem {
 
     this.furniture = {
       items: [
-        '沙發',
-        '椅子',
-        '桌子',
-        '架子',
+        'SOFAS',
+        'CHAIRS',
       ],
       contents: [
         {
@@ -65,9 +61,8 @@ export class CollectionItem {
 
     this.kitchen = {
       items: [
-        '落地燈',
-        '吊燈',
-        '檯燈',
+        'COOKWARE',
+        'KNIVES',
       ],
       contents: [
         {
@@ -85,8 +80,8 @@ export class CollectionItem {
 
     this.dining = {
       items: [
-        '餐具',
-        '杯器',
+        'Dinnerware',
+        'Drinkware',
       ],
       contents: [
         {
