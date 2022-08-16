@@ -5,6 +5,7 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import Unocss from 'unocss/vite'
+import { presetAttributify, presetUno } from 'unocss'
 import extractorPug from '@unocss/extractor-pug'
 import { extractorSplit } from '@unocss/core'
 
@@ -20,6 +21,11 @@ export default defineConfig({
         extractorPug(),
         extractorSplit,
       ],
+      presets: [
+        presetAttributify({ /* preset options */ }),
+        presetUno(),
+        // ...custom presets
+      ],
     }),
 
     // https://github.com/antfu/unplugin-auto-import
@@ -27,8 +33,8 @@ export default defineConfig({
       imports: [
         'vue',
         'vue-router',
-        '@vueuse/core',
-        'vitest',
+        // 'vitest',
+        // '@vueuse/core',
       ],
       dts: true,
       resolvers: [ElementPlusResolver()],
@@ -56,7 +62,7 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url)),
+      '~': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
 })
