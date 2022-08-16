@@ -3,11 +3,17 @@ import { ref, toRef } from 'vue'
 import type { AddedStatusOption } from '~/interfaceDict'
 const showDetails = ref(false)
 const props = defineProps<{
-  option: AddedStatusOption
+  option?: AddedStatusOption
   mode: string
-  sortBy?: string
+  sortBy?: AddedStatusOption
 }>()
+const sortBy = toRef(props, 'sortBy')
 const option = toRef(props, 'option')
+const chooseSortBy = (sortBy: AddedStatusOption | undefined, option: { text: string; status: boolean }) => {
+  sortBy?.details.forEach((element) => {
+    element.status = element.text === option.text
+  })
+}
 
 </script>
 <template>
@@ -22,8 +28,11 @@ const option = toRef(props, 'option')
       :class="{ hoverStyle: showDetails }"
     >
       <div class="flex">
-        <span class="font-normal">
-          {{ option.title.content }}
+        <span v-if="option" class="font-normal">
+          {{ option?.title.content }}
+        </span>
+        <span v-if="sortBy" class="font-normal">
+          {{ sortBy.title.content }}
         </span>
         <i-uil:angle-down />
       </div>
@@ -42,33 +51,30 @@ const option = toRef(props, 'option')
         bg-light-50
       "
     >
-      <!-- <div v-if="mode==='checkBox'">
-      </div> -->
-      <div
-        v-for="(item, index) in option.details"
-        :key="index"
-        class="bg-light-50 hidden pointer"
-        :class="{ optionDetailsButton: showDetails }"
-      >
-        <el-checkbox
-          v-model="item.status"
-          size="large"
-          class="w-100%"
-          :label="item.text"
-        />
+      <div v-if="mode==='checkBox'">
+        <div
+          v-for="(item, index) in option?.details"
+          :key="index"
+          class="bg-light-50 hidden pointer"
+          :class="{ optionDetailsButton: showDetails }"
+        >
+          <el-checkbox
+            v-model="item.status"
+            size="large"
+            class="w-100%"
+            :label="item.text"
+          />
+        </div>
       </div>
-      <!-- <div v-if="mode==='radio'">
-        <el-radio-group v-model="sortBy" class="ml-4">
-          <el-radio
-            v-for="(item,index) in option.details"
-            :key="index"
-            class="bg-light-50 hidden pointer"
-            :label="item.text" size="large"
-          >
-            {{ item.text }}
-          </el-radio>
-        </el-radio-group>
-      </div> -->
+      <div v-if="mode==='select' && sortBy">
+        <div
+          v-for="(obj,index) in sortBy?.details" :key="index"
+          class="hidden pointer" :class="[ {optionDetailsButton: showDetails},{choosedStyle:obj.status}]"
+          @click="chooseSortBy(sortBy,obj)"
+        >
+          {{ obj.text }}
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -84,7 +90,6 @@ const option = toRef(props, 'option')
 .optionDetailsButton {
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding: 10px;
   background-color: white;
   border-top: 0;
@@ -98,5 +103,8 @@ const option = toRef(props, 'option')
 .hoverStyle {
   background-color: white;
   border: 1px solid #dfdfdf;
+}
+.choosedStyle{
+  font-weight: bold
 }
 </style>

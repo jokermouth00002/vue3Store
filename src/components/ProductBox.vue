@@ -1,13 +1,21 @@
 <script setup lang="ts">
-// import { useRoute, useRouter } from 'vue-router'
+import { toRef } from 'vue'
+import { useRouter } from 'vue-router'
 import type { ProductInfo } from '~/interfaceDict'
-
+const router = useRouter()
 const props = defineProps<{
   productInfo: ProductInfo
 }>()
-const emits = defineEmits(['to-productpage'])
+const productInfo = toRef(props, 'productInfo')
 const goPath = (): void => {
-  emits('to-productpage', props.productInfo)
+  const pathString = productInfo.value.productName.replaceAll(/\s/g, '-')
+  if (pathString) {
+    window.scrollTo(0, 0)
+    router.push({ path: `${productInfo.value.type}/products/${pathString}` })
+  }
+  else {
+    router.push({ path: '/' })
+  }
 }
 </script>
 <template>
@@ -30,18 +38,18 @@ const goPath = (): void => {
 
 <style scoped lang="scss">
 .box{
-  width: 25rem;
+  width: 20rem;
   box-sizing: border-box;
   a{
     box-sizing: border-box;
-    width: 25rem;
-    height: 25rem;
+    width: 20rem;
+    height: 20rem;
     background-color: white;
     padding:3rem;
     & img{
       width: 100%;
-      max-width:300px ;
-      max-height:300px ;
+      max-width:250px ;
+      max-height:250px ;
     }
   }
   a:hover{

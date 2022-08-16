@@ -11,7 +11,7 @@ const quickShipOption = {
   category: 'all',
 }
 
-const priceOption = {
+const bedRoomPriceOption = {
   title: 'Price',
   details: [
     '$50 to $100',
@@ -20,7 +20,31 @@ const priceOption = {
     '$500 to $1000',
     'More then $1000',
   ],
-  category: 'all',
+  category: 'bedRoom',
+}
+const furniturePriceOption = {
+  title: 'Price',
+  details: [
+    '$500 to $1000',
+    'More then $1000',
+  ],
+  category: 'furniture',
+}
+const diningPriceOption = {
+  title: 'Price',
+  details: [
+    '$100 to $250',
+    '$250 to $500',
+  ],
+  category: 'dining',
+}
+const kitchenPriceOption = {
+  title: 'Price',
+  details: [
+    '$100 to $250',
+    '$250 to $500',
+  ],
+  category: 'kitchen',
 }
 const sortOption = {
   title: 'Sort by',
@@ -46,7 +70,7 @@ const furnitureType = {
   details: [
     '3 Seater Sofa',
     '4 Seater Sofa',
-    'furniture',
+    'Bar Cart',
   ],
   category: 'furniture',
 }
@@ -63,16 +87,15 @@ const lightingType = {
 const diningType = {
   title: 'Type',
   details: [
-    'Bottega Del Vino Crystal ',
     'By Lassen',
     'Cane Line',
+    'Bottega Del Vino Crystal',
   ],
   category: 'dining',
 }
 const kitchenType = {
   title: 'Type',
   details: [
-    'Baking Dish ',
     'Boning',
     'Braiser',
   ],
@@ -227,7 +250,7 @@ const productsData: ProductInfo[] = [
     category: 'bedRoom',
     type: 'Bookshelves',
     quickShip: false,
-    styleOptions: [{ title: 'color', details: [{ text: 'BLACK', id: '0' }, { text: 'WHITE', id: '1' }] }, { title: 'size', details: [{ text: 'KING', id: '9' }, { text: 'QUEEZ', id: '8' }] }],
+    styleOptions: [{ title: 'color', details: [{ text: 'WHITE', id: '0' }, { text: 'BLACK', id: '1' }] }, { title: 'size', details: [{ text: 'KING', id: '9' }, { text: 'QUEEZ', id: '8' }] }],
 
   },
   {
@@ -241,16 +264,7 @@ const productsData: ProductInfo[] = [
 
   },
   // Furniture-here
-  {
-    imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/Rico_sofa_100224-315_1_large.jpg?v=1587890408'],
-    productName: 'Rico 3 Seater Sofa - Brushed',
-    productPrice: 3789,
-    category: 'furniture',
-    type: '3 Seater Sofa',
-    quickShip: true,
-    styleOptions: [],
 
-  },
   {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/5b9c7216ae522d9c28f1b96c6ce9c42c_large.jpg?v=1571438966'],
     productName: 'Military Canvas Sofa - Canvas & Marbled Brown Finish',
@@ -272,16 +286,6 @@ const productsData: ProductInfo[] = [
 
   },
   {
-    imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/Sum_Modular_Sofa_3_seater_Black_Aluminum1_large.jpg?v=1613423892'],
-    productName: 'Sum Modular Sofa 3 seater- Aluminum Synergy',
-    productPrice: 5010,
-    category: 'furniture',
-    type: '3 Seater Sofa',
-    quickShip: false,
-    styleOptions: [],
-
-  },
-  {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/45003d8574ec735bda505e2eccf3023a_large.jpg?v=1571439022'],
     productName: 'Moments 3 Seater Sofa',
     productPrice: 6495,
@@ -296,16 +300,6 @@ const productsData: ProductInfo[] = [
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/73ef082aa91781232718d8c381fe6307_large.jpg?v=1623941977'],
     productName: 'Sum Modular Sofa 3 seater- Aluminum Synergy',
     productPrice: 6929,
-    category: 'furniture',
-    type: '4 Seater Sofa',
-    quickShip: false,
-    styleOptions: [],
-
-  },
-  {
-    imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/97b56a1c360caf9e1df146c7e0a011fc_large.jpg?v=1646938136'],
-    productName: 'Moments 3 Seater Sofa',
-    productPrice: 9820,
     category: 'furniture',
     type: '4 Seater Sofa',
     quickShip: false,
@@ -661,29 +655,9 @@ const productsData: ProductInfo[] = [
   },
   // Kitchen-here
   {
-    imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/d61cb7e1e9c6dfea099137bf6480f005_large.gif?v=1571438990'],
-    productName: 'Staub Round Covered Baking Dish - 7.9"',
-    productPrice: 160,
-    category: 'kitchen',
-    type: 'Baking Dish',
-    quickShip: true,
-    styleOptions: [],
-
-  },
-  {
     imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/e61c95f62a33b1e08637da3610fd06ad_large.gif?v=1571438990'],
-    productName: 'Staub Oval Covered Baking Dish - 9"',
+    productName: 'Staub Oval Covered Baking Dish - 9',
     productPrice: 170,
-    category: 'kitchen',
-    type: 'Baking Dish',
-    quickShip: true,
-    styleOptions: [],
-
-  },
-  {
-    imgSource: ['//cdn.shopify.com/s/files/1/1087/6904/products/012cbda2684fd5475a1fdfc30c6ea9cf_d02e6228-38c0-4b2f-ae24-81819d6e5328_large.jpg?v=1571438990'],
-    productName: 'Staub Round Gratin Baking Dish - 7.5"',
-    productPrice: 110,
     category: 'kitchen',
     type: 'Baking Dish',
     quickShip: true,
@@ -767,10 +741,14 @@ const productsData: ProductInfo[] = [
 
 export {
   quickShipOption,
-  priceOption,
+  bedRoomPriceOption,
+
   sortOption,
   productsData,
   bedRoomType,
+  diningPriceOption,
+  furniturePriceOption,
+  kitchenPriceOption,
   furnitureType,
   lightingType,
   diningType,

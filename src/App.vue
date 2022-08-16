@@ -1,3 +1,4 @@
+<!-- 特定類別價格太低選不到商品，改商品金額or改金額機制 -->
 <script setup lang="ts">
 import type { Ref } from 'vue'
 import { RouterView } from 'vue-router'
@@ -21,7 +22,6 @@ state.value.products = totalProducts.value
 
 <template>
   <div id="root">
-    <div :class="{overlay:state.overlay}" />
     <nav id="navBar" class="relative bg-cool-gray-800 w-full">
       <FunctionRow />
     </nav>
@@ -29,6 +29,7 @@ state.value.products = totalProducts.value
       <PCNavBar id="PCNavBar" class="flex flex-col items-center" />
       <MobileNavBar id="MobileNavBar" />
     </div>
+    <div :class="{overlay:state.overlay}" />
     <RouterView />
     <Footer class="absoulte" style="background-color:black;color:white;" />
   </div>
@@ -45,11 +46,11 @@ state.value.products = totalProducts.value
   position: fixed;
   height: 100%;
   width: 100%;
-  z-index: 99;
+  z-index: 98;
   opacity: 0.7;
   background-color: #656565;
 }
-@media screen and (max-width:768px) {
+@media screen and (max-width:1150px) {
   #PCNavBar{
     display: none;
   }
@@ -57,7 +58,7 @@ state.value.products = totalProducts.value
     height: 50px;
   }
 }
-@media screen and (min-width:769px) {
+@media screen and (min-width:1150px) {
   #MobileNavBar{
     display: none;
   }

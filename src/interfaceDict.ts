@@ -30,6 +30,7 @@ interface NowUserWantedProduct {
   size: string
   IDString: string
   productInfo: ProductInfo
+  imageIndex: number
 }
 interface optionsText {
   color: string

@@ -21,6 +21,11 @@ const router = createRouter({
       component: () => import('../layout/CategoryPage.vue'),
     },
     {
+      path: '/search/:searchSomething',
+      name: 'search',
+      component: () => import('../layout/CategoryPage.vue'),
+    },
+    {
       path: '/collections/:category/products/:productName',
       name: 'categoryProduct',
       component: () => import('../layout/ProductPage.vue'),

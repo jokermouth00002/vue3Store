@@ -8,7 +8,7 @@ const goPath = (path: string): void => {
 
 <template>
   <div class=" h-12 flex justify-center items-center relative">
-    <div class=" text-light-50 text-2xl">
+    <div class=" text-light-50 text-2xl title">
       FREE SHIPPING OVER $75
     </div>
     <div class="cartAndMember absolute right-1rem w-100px flex justify-around">
@@ -25,6 +25,10 @@ const goPath = (path: string): void => {
 @media screen and (max-width:768px) {
   .cartAndMember{
     display: none;
+  }
+  .title{
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 }
 </style>

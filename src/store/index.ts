@@ -10,11 +10,13 @@ const state: {
   shoppingCart: NowUserWantedProduct[]
   productsIDString: string[]
   overlay: boolean
+  searchString: string
 } = {
   products: [],
   shoppingCart: [],
   productsIDString: [],
   overlay: false,
+  searchString: '',
 }
 
 export default ref(state)

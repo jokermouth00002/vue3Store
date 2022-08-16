@@ -4,56 +4,64 @@
 /* eslint-disable @typescript-eslint/comma-dangle */
 
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { reactive, watch } from 'vue'
+import { reactive } from 'vue'
+import { useRouter } from 'vue-router'
 import { Navigation, Pagination } from 'swiper'
-import { useRoute, useRouter } from 'vue-router'
 import type { ProductInfo } from '~/interfaceDict'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
-const router = useRouter()
-const route = useRoute()
 const modules = [Navigation, Pagination]
 
-const props = defineProps<{ productsArr: ProductInfo[]; title: string }>()
+const props = defineProps<{
+  productsArr: ProductInfo[]
+  title: string
+  text: string
+  slidesPerView: number
+  slidesPerGroup: number
+}>()
 const productsArr = reactive(props.productsArr)
+const router = useRouter()
 const goPath = (item: any) => {
   const pathString = item.productName.replace(/\s/g, '-')
-  router.push({ path: `/collections/${item.type}/products/${pathString}` })
+  if (pathString) {
+    window.scrollTo(0, 0)
+    router.push({ path: `/collections/${item.type}/products/${pathString}` })
+  }
+  else {
+    router.push({ path: '/' })
+  }
 }
-watch(route, () => {
-  window.scrollTo(0, 0)
-})
 </script>
+
 <template>
   <div>
-    <span class="flex justify-center brandFont"> RELATED PRODUCTS </span>
+    <span class="flex justify-center brandFont title"> {{ props.title }} </span>
     <section
       class="
         flex
         justify-center
         flex-col
-        p-3rem
         lightGreen
         extend-background--left
         mt-5rem
       "
     >
-      <span class="sectionTitle flex justify-center fontMaginia text-5xl">
-        {{ title }}
+      <span class="sectionTitle flex justify-center fontMaginia text-5xl text-center">
+        {{ props.text }}
       </span>
       <div class="flex justify-center w-100% items-center space-x-4">
-        <div class="flex">
+        <div class="flex w-100%">
           <swiper
-            :slidesPerView="3"
+            :slidesPerView="props.slidesPerView"
             :spaceBetween="10"
-            :slidesPerGroup="3"
+            :slidesPerGroup="props.slidesPerGroup"
             :navigation="true"
             :modules="modules"
-            class="w-800px h-100"
+            class="w-100% h-100"
           >
-            <swiper-slide v-for="(item, index) in productsArr" :key="index">
+            <swiper-slide v-for="(item, index) in productsArr" :key="index" class="flex justify-center">
               <div class="box pointer" @click="goPath(item)">
                 <a class="block">
                   <img class="w-100% pt-2rem noSelect" :src="item.imgSource[0]" />
@@ -79,9 +87,6 @@ watch(route, () => {
 @import 'swiper/scss';
 swiper :deep(.swiper-button-next) {
   top: 35%;
-}
-.swiper-button-next {
-  display: none;
 }
 .extend-background--left {
   padding-left: 3000px;
@@ -114,5 +119,15 @@ swiper :deep(.swiper-button-next) {
   position: relative;
   color: black;
   top: -4.5rem;
+}
+@media screen and (max-width:768px) {
+  .brandFont{
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  .text-5xl{
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
 }
 </style>

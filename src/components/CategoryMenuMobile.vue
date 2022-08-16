@@ -1,15 +1,17 @@
 <script setup lang="ts" >
+import { ref, toRef } from 'vue'
 import type { AddedStatusOption } from '~/interfaceDict'
 const props = defineProps<{
   sortBy?: AddedStatusOption
   filters?: AddedStatusOption[]
   mode: string
 }>()
-const sortBy = computed(() => {
-  if (props.sortBy)
-    return props.sortBy
-  return null
-})
+const sortBy = toRef(props, 'sortBy')
+const chooseSortBy = (sortBy: AddedStatusOption | undefined, option: { text: string; status: boolean }) => {
+  sortBy?.details.forEach((element) => {
+    element.status = element.text === option.text
+  })
+}
 const showFiltersDetail = ref('')
 props.filters?.forEach((obj) => {
   showFiltersDetail.value = showFiltersDetail.value.concat(`${obj.title.content},`)
@@ -20,7 +22,7 @@ const filters = computed(() => {
   return null
 })
 const showOrHiedItem = (content: string): void => {
-  // showFiltersDetail表示顯示中的title內容，如果字串裡面沒有該title代表其內容被收起來。
+  // showFiltersDetail表示手機頁面商品選項展開/收起的開關，如果showFiltersDetail裡面沒有該選項則內容被折疊起來。
   if (showFiltersDetail.value.match(content))
     showFiltersDetail.value = showFiltersDetail.value.replace(`${content},`, '')
   else
@@ -30,7 +32,7 @@ const showOrHiedItem = (content: string): void => {
 
 <template>
   <div class="bg-light-50 border relative" style="color:black">
-    <div v-if="mode==='checkBox'">
+    <div v-if="props.mode==='checkBox'">
       <div
         v-for="(item,index) in filters" :key="index"
         class="bg-light-50 flex flex-col"
@@ -60,10 +62,12 @@ const showOrHiedItem = (content: string): void => {
         </div>
       </div>
     </div>
-    <div v-if="mode==='select'">
+    <div v-if="props.mode==='select' && sortBy">
       <div
         v-for="(obj,i) in sortBy.details" :key="i"
         class="bg-light-50 p-10px flex justify-between text-sm font-base"
+        :class="{choosedStyle:obj.status}"
+        @click="chooseSortBy(sortBy,obj)"
       >
         <div class="px-10px">
           {{ obj.text }}
@@ -85,6 +89,9 @@ const showOrHiedItem = (content: string): void => {
 }
 .none{
   display: none;
+}
+.choosedStyle{
+  font-weight: bold
 }
 
 </style>
