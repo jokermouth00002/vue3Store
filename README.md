@@ -1,5 +1,5 @@
 # vue3Store
-基於 VUE3 、 TS 、 Vite 、 unoCSS 的電商demo網站。
+基於 Vue3 、 TS 、 Vite 、 UnoCSS 的電商 demo 網站。
 
 腳手架參考
 https://github.com/antfu/vitesse-lite
