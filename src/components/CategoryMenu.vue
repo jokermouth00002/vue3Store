@@ -3,7 +3,7 @@ import { ref, toRef } from 'vue'
 import type { AddedStatusOption } from '~/interfaceDict'
 const showDetails = ref(false)
 const props = defineProps<{
-  option?: AddedStatusOption
+  option?: AddedStatusOption | null
   mode: string
   sortBy?: AddedStatusOption
 }>()
