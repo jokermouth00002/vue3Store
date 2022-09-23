@@ -17,8 +17,10 @@ const productTotalPrice = computed(() => {
     return Number(product.value.productInfo.productPrice) * product.value.quantity
 })
 const productOptionsText = computed (() => {
-  const [colorObj] = product.value.productInfo.styleOptions[0].details.filter(obj => obj.id === product.value.color)
-  const [sizeObj] = product.value.productInfo.styleOptions[1].details.filter(obj => obj.id === product.value.size)
+  if (product.value.productInfo.styleOptions.length === 0) return null
+
+  const [colorObj] = product.value.productInfo.styleOptions[0].details?.filter(obj => obj.id === product.value.color)
+  const [sizeObj] = product.value.productInfo.styleOptions[1].details?.filter(obj => obj.id === product.value.size)
   if (colorObj.text && sizeObj.text) return `-${colorObj.text}/${sizeObj.text}`
   else if (colorObj.text) return `-${colorObj.text}`
   else if (sizeObj.text) return `-${sizeObj.text}`

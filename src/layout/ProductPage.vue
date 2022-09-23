@@ -195,9 +195,10 @@ watch(route, () => {
                 <option
                   v-for="(obj,i) in item.details"
                   :key="i"
-                  :label="obj.text"
                   :value="obj.id"
-                />
+                >
+                  {{ obj.text }}
+                </option>
               </select>
             </div>
           </div>

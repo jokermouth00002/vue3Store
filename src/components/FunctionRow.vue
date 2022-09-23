@@ -13,7 +13,7 @@ const goPath = (path: string): void => {
     </div>
     <div class="cartAndMember absolute right-1rem w-100px flex justify-around">
       <i-ion:cart-outline class="pointer white text-2xl" @click="goPath('cart')" />
-      <i-ion:person-outline class="white text-2xl pointer" />
+      <!-- <i-ion:person-outline class="white text-2xl pointer" /> -->
     </div>
   </div>
 </template>

@@ -29,9 +29,7 @@ const totalPrice = computed((): number => {
 })
 const showDialog = ref(false)
 const whenShoppingDown = (): void => {
-  console.log(123)
   showDialog.value = false
-  state.value.products = []
   state.value.shoppingCart = []
   state.value.productsIDString = []
   state.value.overlay = false

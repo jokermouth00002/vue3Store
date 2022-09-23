@@ -22,7 +22,6 @@ declare module 'vue' {
     'IIon:homeOutline': typeof import('~icons/ion/home-outline')['default']
     'IIon:iosCloseEmpty': typeof import('~icons/ion/ios-close-empty')['default']
     'IIon:menuOutline': typeof import('~icons/ion/menu-outline')['default']
-    'IIon:personOutline': typeof import('~icons/ion/person-outline')['default']
     'IIon:search': typeof import('~icons/ion/search')['default']
     'IPh:magnifyingGlass': typeof import('~icons/ph/magnifying-glass')['default']
     IPhMagnifyingGlassBold: typeof import('~icons/ph/magnifying-glass-bold')['default']

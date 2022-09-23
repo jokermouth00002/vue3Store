@@ -2,8 +2,8 @@
 import { ref, toRef } from 'vue'
 import type { AddedStatusOption } from '~/interfaceDict'
 const props = defineProps<{
-  sortBy?: AddedStatusOption
-  filters?: AddedStatusOption[]
+  sortBy?: any
+  filters?: any
   mode: string
 }>()
 const sortBy = toRef(props, 'sortBy')
